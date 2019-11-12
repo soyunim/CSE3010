@@ -1,0 +1,915 @@
+<?php
+	include "/db.php";
+?>
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./navermovie_files/movie.all.css">
+    <script type="text/javascript" src="./navermovie_files/movie.home.js"></script>
+    <title> 도수체조 영화</title>
+
+</head>
+
+<body>
+    <div id="header" style="bottom: 0px;">
+        <h1 class="svc_name">
+            <a href="/" title="naver로 바로가기" class="ci_logo" id="lnb_gonaver"><img src="navermovie_files/mainmark.jpg" width="62" height="25" alt="NAVER"></a><!-- N=a:LNB.naver -->
+            <a href="Main.html" title="영화서비스홈으로 바로가기" class="svc_logo"><img src="https://ssl.pstatic.net/static/movie/2012/06/logo_svc.png" width="34" height="19" alt="영화"></a><!-- N=a:LNB.movie -->
+            <!-- 우리 로고 박을 곳 -->
+        </h1>
+        <div id="scrollbar" class="scrollbar" style="width: 148px; height: 622px;">
+            <div class="scrollbar-box" style="width: 148px; height: 622px;">
+                <div class="scrollbar-content" style="top: 0px; width: 148px; height: auto;">
+                    <div class="in_scroll">
+                        <ul class="navi">
+                            <li>
+                                <a href="Main.html" title="영화홈" class="menu01_on"><strong>영화홈</strong></a><!-- N=a:LNB.home -->
+                            </li>
+                            <li>
+                                <a href="/movie/running/current.nhn" title="상영작·예정작" class="menu02"><strong>상영작·예정작</strong></a><!-- N=a:LNB.movies -->
+                                <ul class="navi_sub" id="navi_movie" style="display:none">
+                                    <li><a href="/movie/running/current.nhn" title="현재 상영영화" class="sub2_1"><em>현재 상영영화</em></a><!-- N=a:LNB.now -->
+                                    </li>
+                                    <li><a href="/movie/running/premovie.nhn" title="개봉 예정영화" class="sub2_2"><em>개봉 예정영화</em></a><!-- N=a:LNB.soon -->
+                                    </li>
+
+                                    <li><a href="/movie/running/movieclip.nhn" title="예고편" class="sub2_4"><em>예고편</em></a><!-- N=a:LNB.tailer -->
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="ranking.html" title="영화랭킹" class="menu03"><strong>영화랭킹</strong></a><!-- N=a:LNB.db -->
+                            </li>
+                            <li>
+                                <a href="/movie/bi/mi/reserve.nhn" title="예매" class="menu05"><strong>예매</strong></a><!-- N=a:LNB.ticket -->
+                            </li>
+
+                            <li>
+                                <a href="/movie/point/af/list.nhn" title="평점·리뷰" class="menu07"><strong>평점·리뷰</strong></a><!-- N=a:LNB.comm -->
+                            </li>
+                            <li>
+                                <div id="login_box">
+                                    <h1>로그인</h1>
+                                    <form method="post" action="/member/login_ok.php">
+                                        <table align="center" border="0" cellspacing="0" width="20">
+                                            <tr>
+                                                <td width="130" colspan="1">
+                                                    <input type="text" name="userid" class="inph">
+                                                </td>
+                                                <td rowspan="2" align="left" width="20">
+                                                    <button type="submit" id="btn">로그인</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="130" colspan="1">
+                                                    <input type="password" name="userpw" class="inph">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" align="center" class="mem">
+                                                    <a href="member/member.php">회원가입 하시겠습니까?</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+            <div class="scrollbar-v">
+                <div class="scrollbar-button-up rollover"></div>
+                <div class="scrollbar-track rollover">
+                    <div class="scrollbar-thumb S58786810 rollover" style="top: 0px; height: 0px;"></div>
+                </div>
+                <div class="scrollbar-button-down rollover"></div>
+            </div>
+        </div>
+
+        <!-- 위에까지 메뉴바랑 로그인연습중 밑에는 영화사진띄울 메인화면-->
+    </div>
+    <div class="mv_main" onmouseover="oTimer.abort();" onmouseout="movieChart.restartTimer();">
+        <div class="running_tab">
+            <ul>
+                <li id="RESERVE_tab" class="item"><a href="#none" onclick="movieChart.fullSettingMovieChart(0);" onfocus="oTimer.abort();" onblur="movieChart.restartTimer();" class="flickingTab"><em>예매순</em></a><!-- N=a:run.ticket -->
+                </li>
+                <li id="CURRENT_tab" class="item"><a href="#none" onclick="movieChart.fullSettingMovieChart(1);" onfocus="oTimer.abort();" onblur="movieChart.restartTimer();" class="flickingTab"><em>현재상영작</em></a><!-- N=a:run.now -->
+                </li>
+                <li id="COMMING_tab" class="item on"><a href="#none" onclick="movieChart.fullSettingMovieChart(2);" onfocus="oTimer.abort();" onblur="movieChart.restartTimer();" class="flickingTab"><em>개봉예정작</em></a><!-- N=a:run.coming -->
+                </li>
+                <li id="POINT_tab" class="item"><a href="#none" onclick="movieChart.fullSettingMovieChart(3);" onfocus="oTimer.abort();" onblur="movieChart.restartTimer();" class="flickingTab"><em>평점순</em></a><!-- N=a:run.bystar -->
+                </li>
+            </ul>
+        </div>
+        <!-- flick area -->
+        <div id="mflick" class="flick_view_area flick-view">
+            <div class="flick-container" style="left: -100%; position: relative; width: 100%; height: 430px; transition-duration: 0ms; transform: translate(0px, 0px);">
+                <strong id="pannel0" class="blind">평점순</strong>
+                <ul id="flick0" class="flick-ct home_list page0 flick-panel" style="display: none; position: absolute; width: 100%; height: 100%; transform: translate(0px, 0px); transition-property: -webkit-transform; left: 200%; z-index: 1;">
+                    <li class="item1" data-id="188370" data-detail="188370" data-reserve="188370" onmouseover="jindo.$Element('pointTooltip1').show();" onmouseout="jindo.$Element('pointTooltip1').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=188370" onfocus="jindo.$Element('pointTooltip1').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip1').hide();movieChart.restartTimer();"><span class="rank"><em>1위</em></span>
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191028_183/1572245474462owWQu_JPEG/movie_image.jpg?type=f125" alt="아직 지나지 않은 여름" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:100%"><em>10.00 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num1"><em>1</em></span><span class="char sc_num0"><em>0</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num0"><em>0</em></span><span
+                                            class="char sc_num0"><em>0</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:1,i:188370 -->
+                        </div>
+                        <div id="pointTooltip1" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">아직 지나지 않은 여름</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item2" data-id="187979" data-detail="187979" data-reserve="187979" onmouseover="jindo.$Element('pointTooltip2').show();" onmouseout="jindo.$Element('pointTooltip2').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=187979" onfocus="jindo.$Element('pointTooltip2').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip2').hide();movieChart.restartTimer();"><span class="rank"><em>2위</em></span>
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20190909_271/15679956670022JzVB_JPEG/movie_image.jpg?type=f125" alt="나의 노래는 멀리멀리" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:97.2%"><em>9.72 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num7"><em>7</em></span><span class="char sc_num2"><em>2</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:2,i:187979 -->
+                        </div>
+                        <div id="pointTooltip2" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">나의 노래는 멀리멀리</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item3" data-id="173753" data-detail="173753" data-reserve="173753" onmouseover="jindo.$Element('pointTooltip3').show();" onmouseout="jindo.$Element('pointTooltip3').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=173753" onfocus="jindo.$Element('pointTooltip3').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip3').hide();movieChart.restartTimer();"><span class="rank"><em>3위</em></span>
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191021_109/1571622589004QxLIy_JPEG/movie_image.jpg?type=f125" alt="졸업" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:97%"><em>9.70 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num7"><em>7</em></span><span class="char sc_num0"><em>0</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:3,i:173753 -->
+                        </div>
+                        <div id="pointTooltip3" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">졸업</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item4" data-id="179518" data-detail="179518" data-reserve="179518" onmouseover="jindo.$Element('pointTooltip4').show();" onmouseout="jindo.$Element('pointTooltip4').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=179518" onfocus="jindo.$Element('pointTooltip4').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip4').hide();movieChart.restartTimer();"><span class="rank"><em>4위</em></span>
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20190712_279/1562912698606Qv0GH_JPEG/movie_image.jpg?type=f125" alt="주전장" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:94.9%"><em>9.49 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num4"><em>4</em></span><span class="char sc_num9"><em>9</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:4,i:179518 -->
+                        </div>
+                        <div id="pointTooltip4" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">주전장</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item5" data-id="10200" data-detail="10200" data-reserve="10200" onmouseover="jindo.$Element('pointTooltip5').show();" onmouseout="jindo.$Element('pointTooltip5').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=10200" onfocus="jindo.$Element('pointTooltip5').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip5').hide();movieChart.restartTimer();"><span class="rank"><em>5위</em></span>
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191010_99/1570669194041iWfdl_JPEG/movie_image.jpg?type=f125" alt="터미네이터 2:오리지널" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:94.3%"><em>9.43 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num4"><em>4</em></span><span class="char sc_num3"><em>3</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:5,i:10200 -->
+                        </div>
+                        <div id="pointTooltip5" class="obj_con" style="display:none">
+                            <div class="obj_on rt">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">터미네이터 2:오리지널</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item6" data-id="166498" data-detail="166498" data-reserve="166498" onmouseover="jindo.$Element('pointTooltip6').show();" onmouseout="jindo.$Element('pointTooltip6').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=166498" onfocus="jindo.$Element('pointTooltip6').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip6').hide();movieChart.restartTimer();"><span class="rank"><em>6위</em></span>
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20190927_8/1569550909963dbsdI_JPEG/movie_image.jpg?type=f125" alt="시크릿 슈퍼스타" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:93.9%"><em>9.39 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num3"><em>3</em></span><span class="char sc_num9"><em>9</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:6,i:166498 -->
+                        </div>
+                        <div id="pointTooltip6" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">시크릿 슈퍼스타</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item7" data-id="163788" data-detail="163788" data-reserve="163788" onmouseover="jindo.$Element('pointTooltip7').show();" onmouseout="jindo.$Element('pointTooltip7').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=163788" onfocus="jindo.$Element('pointTooltip7').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip7').hide();movieChart.restartTimer();"><span class="rank"><em>7위</em></span>
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20190524_104/1558663170174Q2mmw_JPEG/movie_image.jpg?type=f125" alt="알라딘" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:93.80000000000001%"><em>9.38 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num3"><em>3</em></span><span class="char sc_num8"><em>8</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:7,i:163788 -->
+                        </div>
+                        <div id="pointTooltip7" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">알라딘</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item8" data-id="92125" data-detail="92125" data-reserve="92125" onmouseover="jindo.$Element('pointTooltip8').show();" onmouseout="jindo.$Element('pointTooltip8').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=92125" onfocus="jindo.$Element('pointTooltip8').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip8').hide();movieChart.restartTimer();"><span class="rank"><em>8위</em></span>
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20181212_219/1544577062842KarfK_JPEG/movie_image.jpg?type=f125" alt="헌터 킬러" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:93.69999999999999%"><em>9.37 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num3"><em>3</em></span><span class="char sc_num7"><em>7</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:8,i:92125 -->
+                        </div>
+                        <div id="pointTooltip8" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">헌터 킬러</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item9" data-id="25915" data-detail="25915" data-reserve="25915" onmouseover="jindo.$Element('pointTooltip9').show();" onmouseout="jindo.$Element('pointTooltip9').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=25915" onfocus="jindo.$Element('pointTooltip9').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip9').hide();movieChart.restartTimer();"><span class="rank"><em>9위</em></span>
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20190916_241/1568617690651nc10H_JPEG/movie_image.jpg?type=f125" alt="아이언 자이언트" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:93.3%"><em>9.33 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num3"><em>3</em></span><span class="char sc_num3"><em>3</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:9,i:25915 -->
+                        </div>
+                        <div id="pointTooltip9" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">아이언 자이언트</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item10" data-id="187411" data-detail="187411" data-reserve="187411" onmouseover="jindo.$Element('pointTooltip10').show();" onmouseout="jindo.$Element('pointTooltip10').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=187411" onfocus="jindo.$Element('pointTooltip10').show();oTimer.abort();" onblur="jindo.$Element('pointTooltip10').hide();movieChart.restartTimer();"><span
+                                    class="rank"><em>10위</em></span>
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20190802_154/1564709333899OnlhF_JPEG/movie_image.jpg?type=f125" alt="디터 람스" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:93.2%"><em>9.32 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num3"><em>3</em></span><span class="char sc_num2"><em>2</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:10,i:187411 -->
+                        </div>
+                        <div id="pointTooltip10" class="obj_con" style="display:none">
+                            <div class="obj_on rt">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">디터 람스</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <strong id="pannel1" class="blind">현재상영작</strong>
+                <ul id="flick1" class="flick-ct home_list page1 flick-panel" style="position: absolute; width: 100%; height: 100%; transform: translate(0px, 0px); transition-property: -webkit-transform; left: 0%; z-index: 1; display: none;">
+                    <li class="item1" data-id="179159" data-detail="179159" data-reserve="179159" onmouseover="jindo.$Element('currentTooltip1').show();" onmouseout="jindo.$Element('currentTooltip1').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=179159" onfocus="jindo.$Element('currentTooltip1').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip1').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191029_52/15723135180872xOKy_JPEG/movie_image.jpg?type=f125" alt="신의 한 수: 귀수편" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:81.4%"><em>8.14 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num1"><em>1</em></span><span class="char sc_num4"><em>4</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:1,i:179159 -->
+                        </div>
+                        <div id="currentTooltip1" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">신의 한 수: 귀수편</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item2" data-id="184357" data-detail="184357" data-reserve="184357" onmouseover="jindo.$Element('currentTooltip2').show();" onmouseout="jindo.$Element('currentTooltip2').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=184357" onfocus="jindo.$Element('currentTooltip2').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip2').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191011_62/1570758276142YxXEz_JPEG/movie_image.jpg?type=f125" alt="아담스 패밀리" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:78.3%"><em>7.83 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num7"><em>7</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num8"><em>8</em></span><span class="char sc_num3"><em>3</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:2,i:184357 -->
+                        </div>
+                        <div id="currentTooltip2" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">아담스 패밀리</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item3" data-id="185912" data-detail="185912" data-reserve="185912" onmouseover="jindo.$Element('currentTooltip3').show();" onmouseout="jindo.$Element('currentTooltip3').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=185912" onfocus="jindo.$Element('currentTooltip3').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip3').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191014_28/1571020269174F3yvC_JPEG/movie_image.jpg?type=f125" alt="닥터 슬립" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.5%"><em>8.65 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num5"><em>5</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:3,i:185912 -->
+                        </div>
+                        <div id="currentTooltip3" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">닥터 슬립</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item4" data-id="189048" data-detail="189048" data-reserve="189048" onmouseover="jindo.$Element('currentTooltip4').show();" onmouseout="jindo.$Element('currentTooltip4').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=189048" onfocus="jindo.$Element('currentTooltip4').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip4').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191029_231/1572331395015yN7vf_JPEG/movie_image.jpg?type=f125" alt="캔 유 킵 어 시크릿?" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:82.6%"><em>8.26 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num2"><em>2</em></span><span class="char sc_num6"><em>6</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:4,i:189048 -->
+                        </div>
+                        <div id="currentTooltip4" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">캔 유 킵 어 시크릿?</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item5" data-id="189063" data-detail="189063" data-reserve="189063" onmouseover="jindo.$Element('currentTooltip5').show();" onmouseout="jindo.$Element('currentTooltip5').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=189063" onfocus="jindo.$Element('currentTooltip5').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip5').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191021_114/1571639950089YG6VN_JPEG/movie_image.jpg?type=f125" alt="패트와 매트: 우당탕탕 크리스마스" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:24.4%"><em>2.44 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num2"><em>2</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num4"><em>4</em></span><span class="char sc_num4"><em>4</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:5,i:189063 -->
+                        </div>
+                        <div id="currentTooltip5" class="obj_con" style="display:none">
+                            <div class="obj_on rt">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">패트와 매트: 우당탕탕 크리스마스</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item6" data-id="168038" data-detail="168038" data-reserve="168038" onmouseover="jindo.$Element('currentTooltip6').show();" onmouseout="jindo.$Element('currentTooltip6').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=168038" onfocus="jindo.$Element('currentTooltip6').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip6').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191001_77/1569891294220EKS5H_JPEG/movie_image.jpg?type=f125" alt="왓 데이 해드" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:91.4%"><em>9.14 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num1"><em>1</em></span><span class="char sc_num4"><em>4</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:6,i:168038 -->
+                        </div>
+                        <div id="currentTooltip6" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">왓 데이 해드</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item7" data-id="26756" data-detail="26756" data-reserve="26756" onmouseover="jindo.$Element('currentTooltip7').show();" onmouseout="jindo.$Element('currentTooltip7').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=26756" onfocus="jindo.$Element('currentTooltip7').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip7').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191001_100/1569897879036mduSv_JPEG/movie_image.jpg?type=f125" alt="모리스" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.30000000000001%"><em>8.63 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num3"><em>3</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:7,i:26756 -->
+                        </div>
+                        <div id="currentTooltip7" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">모리스</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item8" data-id="10676" data-detail="10676" data-reserve="10676" onmouseover="jindo.$Element('currentTooltip8').show();" onmouseout="jindo.$Element('currentTooltip8').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=10676" onfocus="jindo.$Element('currentTooltip8').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip8').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20190927_299/15695505445642wvvg_JPEG/movie_image.jpg?type=f125" alt="타이페이 스토리" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:81%"><em>8.10 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num1"><em>1</em></span><span class="char sc_num0"><em>0</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:8,i:10676 -->
+                        </div>
+                        <div id="currentTooltip8" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">타이페이 스토리</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item9" data-id="173753" data-detail="173753" data-reserve="173753" onmouseover="jindo.$Element('currentTooltip9').show();" onmouseout="jindo.$Element('currentTooltip9').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=173753" onfocus="jindo.$Element('currentTooltip9').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip9').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191021_109/1571622589004QxLIy_JPEG/movie_image.jpg?type=f125" alt="졸업" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:97%"><em>9.70 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num9"><em>9</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num7"><em>7</em></span><span class="char sc_num0"><em>0</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:9,i:173753 -->
+                        </div>
+                        <div id="currentTooltip9" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">졸업</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item10" data-id="181869" data-detail="181869" data-reserve="181869" onmouseover="jindo.$Element('currentTooltip10').show();" onmouseout="jindo.$Element('currentTooltip10').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=181869" onfocus="jindo.$Element('currentTooltip10').show();oTimer.abort();" onblur="jindo.$Element('currentTooltip10').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191014_134/15710297905020u3KU_JPEG/movie_image.jpg?type=f125" alt="더 빌리지" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:62.9%"><em>6.29 점</em></span></span>
+                                    <strong class="l"><span class="char sc_num6"><em>6</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num2"><em>2</em></span><span class="char sc_num9"><em>9</em></span></strong>
+                                </span>
+                            </a><!-- N=a:run.da,r:10,i:181869 -->
+                        </div>
+                        <div id="currentTooltip10" class="obj_con" style="display:none">
+                            <div class="obj_on rt">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">더 빌리지</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <strong id="pannel2" class="blind">개봉예정작</strong>
+                <ul id="flick2" class="flick-ct home_list page2 flick-panel" style="display: block; position: absolute; width: 100%; height: 100%; transform: translate(0px, 0px); transition-property: -webkit-transform; left: 100%; z-index: 10;">
+                    <li class="item1" data-id="189053" data-detail="189053" data-reserve="189053" onmouseover="jindo.$Element('commingTooltip1').show();" onmouseout="jindo.$Element('commingTooltip1').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=189053" onfocus="jindo.$Element('commingTooltip1').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip1').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191025_6/1571982577766HujOq_JPEG/movie_image.jpg?type=f125" alt="블랙머니" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num1"><em>1</em></span><span
+                                            class="char rate_num3"><em>3</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:1,i:189053 -->
+                        </div>
+                        <div id="commingTooltip1" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">블랙머니</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item2" data-id="163831" data-detail="163831" data-reserve="163831" onmouseover="jindo.$Element('commingTooltip2').show();" onmouseout="jindo.$Element('commingTooltip2').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=163831" onfocus="jindo.$Element('commingTooltip2').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip2').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191016_256/1571201319628YtxxJ_JPEG/movie_image.jpg?type=f125" alt="엔젤 해즈 폴른" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num1"><em>1</em></span><span
+                                            class="char rate_num3"><em>3</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:2,i:163831 -->
+                        </div>
+                        <div id="commingTooltip2" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">엔젤 해즈 폴른</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item3" data-id="74407" data-detail="74407" data-reserve="74407" onmouseover="jindo.$Element('commingTooltip3').show();" onmouseout="jindo.$Element('commingTooltip3').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=74407" onfocus="jindo.$Element('commingTooltip3').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip3').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_15">15세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191101_133/1572575304249ohmm8_JPEG/movie_image.jpg?type=f125" alt="좀비랜드: 더블 탭" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num1"><em>1</em></span><span
+                                            class="char rate_num3"><em>3</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:3,i:74407 -->
+                        </div>
+                        <div id="commingTooltip3" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">좀비랜드: 더블 탭</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item4" data-id="182387" data-detail="182387" data-reserve="182387" onmouseover="jindo.$Element('commingTooltip4').show();" onmouseout="jindo.$Element('commingTooltip4').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=182387" onfocus="jindo.$Element('commingTooltip4').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip4').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191018_25/15713615272646fB9R_JPEG/movie_image.jpg?type=f125" alt="윤희에게" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num1"><em>1</em></span><span
+                                            class="char rate_num4"><em>4</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:4,i:182387 -->
+                        </div>
+                        <div id="commingTooltip4" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">윤희에게</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item5" data-id="175498" data-detail="175498" data-reserve="175498" onmouseover="jindo.$Element('commingTooltip5').show();" onmouseout="jindo.$Element('commingTooltip5').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=175498" onfocus="jindo.$Element('commingTooltip5').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip5').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191025_23/1571983040662smIpG_JPEG/movie_image.jpg?type=f125" alt="어쩌다 룸메이트" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num1"><em>1</em></span><span
+                                            class="char rate_num3"><em>3</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:5,i:175498 -->
+                        </div>
+                        <div id="commingTooltip5" class="obj_con" style="display:none">
+                            <div class="obj_on rt">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">어쩌다 룸메이트</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item6" data-id="136873" data-detail="136873" data-reserve="136873" onmouseover="jindo.$Element('commingTooltip6').show();" onmouseout="jindo.$Element('commingTooltip6').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=136873" onfocus="jindo.$Element('commingTooltip6').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip6').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191106_80/157301825092869SI8_JPEG/movie_image.jpg?type=f125" alt="겨울왕국 2" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num2"><em>2</em></span><span
+                                            class="char rate_num1"><em>1</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:6,i:136873 -->
+                        </div>
+                        <div id="commingTooltip6" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">겨울왕국 2</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item7" data-id="185134" data-detail="185134" data-reserve="185134" onmouseover="jindo.$Element('commingTooltip7').show();" onmouseout="jindo.$Element('commingTooltip7').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=185134" onfocus="jindo.$Element('commingTooltip7').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip7').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191017_111/1571276268743qmsCI_JPEG/movie_image.jpg?type=f125" alt="삽질" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num1"><em>1</em></span><span
+                                            class="char rate_num4"><em>4</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:7,i:185134 -->
+                        </div>
+                        <div id="commingTooltip7" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">삽질</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item8" data-id="179411" data-detail="179411" data-reserve="179411" onmouseover="jindo.$Element('commingTooltip8').show();" onmouseout="jindo.$Element('commingTooltip8').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=179411" onfocus="jindo.$Element('commingTooltip8').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip8').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191011_97/1570756354107DEyJO_JPEG/movie_image.jpg?type=f125" alt="헬로 몽키" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num1"><em>1</em></span><span
+                                            class="char rate_num4"><em>4</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:8,i:179411 -->
+                        </div>
+                        <div id="commingTooltip8" class="obj_con" style="display:none">
+                            <div class="obj_on ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">헬로 몽키</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item9" data-id="175878" data-detail="175878" data-reserve="175878" onmouseover="jindo.$Element('commingTooltip9').show();" onmouseout="jindo.$Element('commingTooltip9').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=175878" onfocus="jindo.$Element('commingTooltip9').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip9').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_all">전체 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191015_243/1571121932343rv00n_JPEG/movie_image.jpg?type=f125" alt="마법안개의 비밀: 황금 보물선을 찾아라" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num1"><em>1</em></span><span
+                                            class="char rate_num4"><em>4</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:9,i:175878 -->
+                        </div>
+                        <div id="commingTooltip9" class="obj_con" style="display:none">
+                            <div class="obj_on br ">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">마법안개의 비밀: 황금 보물선을 찾아라</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item10" data-id="179392" data-detail="179392" data-reserve="179392" onmouseover="jindo.$Element('commingTooltip10').show();" onmouseout="jindo.$Element('commingTooltip10').hide();">
+                        <div class="obj_off tab4">
+                            <a href="/movie/bi/mi/basic.nhn?code=179392" onfocus="jindo.$Element('commingTooltip10').show();oTimer.abort();" onblur="jindo.$Element('commingTooltip10').hide();movieChart.restartTimer();">
+
+                                <span class="ico_rating_12">12세 관람가</span>
+
+                                <span class="mask"></span>
+                                <img src="https://movie-phinf.pstatic.net/20191022_142/1571718697856t1I2N_JPEG/movie_image.jpg?type=f125" alt="영하의 바람" width="125" height="179"
+                                    onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img125x179.png'">
+                                <span class="baseplate r">
+                                    <strong class="l"><span class="char rate_num1"><em>1</em></span><span class="char rate_num1"><em>1</em></span><span class="char rate_dot"><em>.</em></span><span class="char rate_num1"><em>1</em></span><span
+                                            class="char rate_num4"><em>4</em></span></strong><span class="spr stic_open l"><em>개봉</em></span>
+                                </span>
+                            </a><!-- N=a:run.da,r:10,i:179392 -->
+                        </div>
+                        <div id="commingTooltip10" class="obj_con" style="display:none">
+                            <div class="obj_on rt">
+                                <div class="tooltip">
+                                    <span class="top"></span>
+                                    <p class="mv_title">영하의 바람</p>
+                                    <span class="bottom"></span><span class="bottom_r"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- //flick area -->
+        <div class="flick_nav">
+            <a href="#" id="flick_prev" class="btn_prev" onclick="clickcr(this, 'run.pre', '', '', event);" onfocus="oTimer.abort();" onblur="movieChart.restartTimer();" title="이전"><em>이전</em></a><!-- N=a:run.pre -->
+        </div>
+        <div class="flick_nav">
+            <a href="#" id="flick_next" class="btn_next" onclick="clickcr(this, 'run.next', '', '', event);" onfocus="oTimer.abort();" onblur="movieChart.restartTimer();" title="다음"><em>다음</em></a><!-- N=a:run.next -->
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
