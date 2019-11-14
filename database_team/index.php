@@ -17,7 +17,7 @@ session_start();
                  <?php include "./lib/top_menu1.php"; ?>
              </div>
              <div id=""content>
-                <div id="main_img"><img src="./img/main_img.jpeg" width="1000px"height="300px " ></div>
+                <!--<div id="main_img"><img src="./img/main_img.jpeg" width="1000px"height="300px " ></div>--><!--영화띄워놓을 큰 배너-->
 
              </div>
          </div>

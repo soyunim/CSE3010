@@ -5,7 +5,7 @@
  <html>
      <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../css/common.css">
+        <link rel="stylesheet" type="text/css" href="../css/login.css">
         <link rel="stylesheet" type="text/css" href="../css/member.css">
         <script>
 
@@ -65,7 +65,7 @@
 
             <div id="menu">
 
-                <?php include "../lib/top_main2.php"; ?>
+                <?php include "../lib/top_menu2.php"; ?>
 
             </div> <!-- end of menu -->
 
@@ -73,7 +73,7 @@
                 <div id="col1">
                     <div id="left_menu">
 
-                        <?php include "../lib/left_menu.php"; ?>
+                        <!--<?php include "../lib/left_menu.php"; ?>--> <!--왼쪽메뉴 새로 만들자-->
 
                     </div>
                 </div> <!-- end of col1 -->

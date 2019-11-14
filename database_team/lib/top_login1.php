@@ -1,4 +1,4 @@
-    <div id="logo"><a href="./index.php"><img src="./img/cgv.gif" border="0" width ="100px" ></a></div>
+    <div id="logo"><a href="./index.php"><img src="./img/cgv.gif" border="0" width ="100px"  ></a></div> <!--우리 영화관 로고 넣을 자리-->
 	<div id="top_login">
 <?php
     if(!isset($_SESSION["userid"]))

@@ -1,9 +1,8 @@
 body {
 	margin:0;
 	padding:0;
-	background-image:url(../img/main_background4.gif);
+	background-image:url(../img/main_background.gif);
 	background-repeat:no-repeat;
-	background-size: cover;
 	font-family:"돋움";
 	font-size:12px;
 	font-weight:normal;

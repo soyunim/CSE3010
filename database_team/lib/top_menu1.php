@@ -1,4 +1,4 @@
-<div class="menus"><a href="./memo/memo.php"><img src="./img/home.gif" width="140px" height ="38px" border="0"></a></div>
+<div class="menus"><a href="./memo/memo.php"><img src="./img/home.gif"  width="140px" height ="38px" border="0"></a></div>
 <div class="menus"><a href="./greet/list.php"><img src="./img/booking.gif" width="140px" height ="38px"border="0"></a></div>
 <div class="menus"><a href="./concert/list.php"><img src="./img/ranking.gif" width="140px" height ="38px" border="0"></a></div>
 <div class="menus"><a href="./download/list.php"><img src="./img/review.gif" width="140px" height ="38px" border="0"></a></div>
