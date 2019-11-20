@@ -4,7 +4,11 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+@font-face{
+    font-family:blackhans;
+    src: url(../../../BlackHanSans-Regular.ttf);
+}
+ :root {
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -4106,7 +4110,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     margin-right: 1rem;
     font-size: 1.25rem;
     line-height: inherit;
-    white-space: nowrap
+    white-space: nowrap;
+    font-family: blackhans;
 }
 
 .navbar-brand:focus, .navbar-brand:hover {
