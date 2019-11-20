@@ -39,10 +39,9 @@
 } else{
         $_SESSION["userid"]=$row["id"];
         $_SESSION["name"]=$row["name"];
-        $_SESSION["nick"]=$row["nick"];
-        $_SESSION["level"]=$row["level"];
+        $_SESSION["membership_rating"]=$row["membership_rating"];
 
-        header("Location:http://localhost:8888/template1/index.php");
+        header("Location:http://localhost:6563/template1/index.php");
         exit;
     }
 ?>

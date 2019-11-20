@@ -14,9 +14,7 @@
                 window.open("check_id.php?id="+document.member_form.id.value ,"IDcheck","left=200,top=200,width=200,height=60,scrollbars=no, resizable=yes");
             }
 
-            function check_nick(){
-                window.open("check_nick.php?nick="+document.member_form.nick.value,"NICKcheck", "left=200,top=200,width=200,height=60, scrollbars=no,resizable=yes");
-            }
+
             function check_input(){
 
                 if(!document.member_form.hp2.value || !document.member_form.hp3.value ){
@@ -41,7 +39,7 @@
                 document.member_form.pass.value = "";
                 document.member_form.pass_confirm.value = "";
                 document.member_form.name.value = "";
-                document.member_form.nick.value = "";
+                document.member_form.birthday.value = "";
                 document.member_form.hp2.value = "";
                 document.member_form.hp3.value = "";
                 document.member_form.email1.value = "";
@@ -92,7 +90,7 @@
                                     <li>* 비밀번호</li>
                                     <li>* 비밀번호 확인</li>
                                     <li>* 이름</li>
-                                    <li>* 닉네임</li>
+                                    <li>* 생년월일 (6자리)</li>
                                     <li>* 휴대폰</li>
                                     <li>&nbsp;&nbsp;&nbsp;이메일</li>
                                 </ul>
@@ -112,12 +110,9 @@
 
                                     <li><input type="text" name="name" required ></li>
 
-                                    <li><div id="nick1"><input type="text" name="nick" required ></div>
+                                    <li><input type="text" name="birthday" required ></li>
 
-                                        <div id="nick2"><a href="#"><img src="../img/check_id.gif"
-
-                                            onclick="check_nick()"></a></div></li>
-                                    <li><input type=“text" class=“hp” name=“hp1“ value=“010”> - <input type="text" class="hp" name="hp2"> - <input type="text" class="hp" name="hp3"></li>
+                                    <li><input type=“text" class=“hp” name=“hp1“ value="010"> - <input type="text" class="hp" name="hp2"> - <input type="text" class="hp" name="hp3"></li>
 
                                     <li><input type="text" id="email1" name="email1"> @ <input type="text" name="email2"></li>
 
@@ -133,7 +128,7 @@
 
                          <div id="button"><a href="#"><img src="../img/button_save.gif"
                              onclick="check_input()"></a>&nbsp;&nbsp;
-                             <a href="#"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
+                             <a href="index.php"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
 
                          </div>
 

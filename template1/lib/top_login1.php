@@ -9,7 +9,6 @@ if(!isset($_SESSION["userid"]))
 else
 {
 ?>
-	<?=$_SESSION["nick"]?> (level:<?=$_SESSION["level"]?>)
 	<a class="nav-link" href="./login/logout.php">Logout</a>
 <?php
 }

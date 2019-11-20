@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Modern Business - Start Bootstrap Template</title>
+  <title>도수체조 Theater</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,14 +26,14 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><!---영화관이름 -->Movie Theater</a>
+      <a class="navbar-brand" href="index.php"><!---영화관이름 -->Movie Theater</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"> <!---메뉴바---->
-                
+                <?php include "./lib/login_success.php" ?> 
             </li>
           <li class="nav-item"> <!---메뉴바---->
               <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
