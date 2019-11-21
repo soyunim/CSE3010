@@ -33,28 +33,28 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"> <!---메뉴바---->
-                <?php include "./lib/login_success.php" ?> 
+                <?php include "./lib/login_success.php" ?>
             </li>
-          <li class="nav-item"> <!---메뉴바---->
-              <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
-          </li>
-          <li class="nav-item">
-              <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">예매</a> <!--영화예매페이지-->
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              관리자 메뉴
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="portfolio-1-col.html">직원 관리</a>
-              <a class="dropdown-item" href="portfolio-2-col.html">매출 관리</a>
-            </div>
+            <li class="nav-item"> <!---메뉴바---->
+                <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
+            </li>
+            <li class="nav-item">
+                <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="services.html">예매</a> <!--영화예매페이지-->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    관리자 메뉴
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                <a class="dropdown-item" href="portfolio-1-col.html">직원 관리</a>
+                <a class="dropdown-item" href="portfolio-2-col.html">매출 관리</a>
+                </div>
           </li>
         </ul>
       </div>

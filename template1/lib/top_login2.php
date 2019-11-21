@@ -1,4 +1,5 @@
-    <div id="logo"><a href="../index.php"><img src="../img/cgv.gif" width ="100px" border="0"></a></div>
+    <a class="navbar-brand" href="../index.php"><!---영화관이름 -->국민영화관</a>
+
 	<div id="top_login">
 <?php
     if(!isset($_SESSION["userid"]))

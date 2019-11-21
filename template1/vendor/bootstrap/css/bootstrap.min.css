@@ -4107,11 +4107,14 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
     display: inline-block;
     padding-top: .3125rem;
     padding-bottom: .3125rem;
+    margin-left: 20px;
     margin-right: 1rem;
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap;
-    font-family: blackhans;
+    font-family: blackhans!important;
+
+
 }
 
 .navbar-brand:focus, .navbar-brand:hover {

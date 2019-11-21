@@ -1,3 +1,20 @@
+@font-face{
+    font-family:blackhans;
+    src: url(../BlackHanSans-Regular.ttf);
+}
+.navbar-brand {
+    display: inline-block;
+    margin-left: 20px;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    font-family: blackhans;
+
+
+}
 body {
 	margin:0;
 	padding:0;
@@ -19,15 +36,13 @@ a {
 }
 
 a:hover, a:visited, a:link, a:active {
-	font-family:"돋움";
-	font-size:12px;
 	font-weight:normal;
 	color:#555555;
 }
 
 ul, li {
 	margin:0!important;
-	padding:0!important;
+	padding:0;
 	list-style:none!important;
 }
 

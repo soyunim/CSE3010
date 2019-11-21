@@ -5,6 +5,7 @@
  <html>
      <head>
         <meta charset="utf-8">
+        <link href="../css/modern-business.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/login.css">
         <link rel="stylesheet" type="text/css" href="../css/member.css">
         <script>
@@ -112,9 +113,9 @@
 
                                     <li><input type="text" name="birthday" required ></li>
 
-                                    <li><input type=“text" class=“hp” name=“hp1“ value="010"> - <input type="text" class="hp" name="hp2"> - <input type="text" class="hp" name="hp3"></li>
+                                    <li><input type="text" class="hp" name="hp1" value="010"> - <input type="text" class="hp" name="hp2"> - <input type="text" class="hp" name="hp3"></li>
 
-                                    <li><input type="text" id="email1" name="email1"> @ <input type="text" name="email2"></li>
+                                    <li><input type="text" id="email1" name="email1"> @ <input type="text" id ="email2" name="email2"></li>
 
                                 </ul>
 
@@ -128,7 +129,7 @@
 
                          <div id="button"><a href="#"><img src="../img/button_save.gif"
                              onclick="check_input()"></a>&nbsp;&nbsp;
-                             <a href="index.php"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
+                             <a href="../index.php"><img src="../img/button_reset.gif" onclick="reset_form()"></a>
 
                          </div>
 

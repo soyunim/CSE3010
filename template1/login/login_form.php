@@ -33,7 +33,7 @@
                     </div>
                     <div id="login2">
                         <div id="id_input_button">
-                            <div id="ud_pw_title">
+                            <div id="id_pw_title">
                                 <ul>
                                     <li><img src="../img/id_title.gif"></li>
                                     <li><img src="../img/pw_title.gif"></li>
