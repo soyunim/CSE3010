@@ -82,16 +82,16 @@
         <ol class = "movielist"> <!-- 1위~4위 -->
             <li>
                 <div class = "box_rank">
-                    <span><strong>1</strong></span>
+                    <span><strong>1위</strong></span>
                 </div>
 
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82014/82014_185.jpg" alt="겨울왕국">
+                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82014/82014_185.jpg" alt="겨울왕국2">
                 </div>
 
                 <div class = "box-content">
                     <div class = "m_title">
-                        <span>겨울왕국2</span>
+                        <span>겨울왕국 2</span>
                     </div>
 
                     <div class = "m_actors">
@@ -110,10 +110,10 @@
 
             <li>
                 <div class = "box_rank">
-                    <span><strong>2</strong></span>
+                    <span><strong>2위</strong></span>
                 </div>
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82481/82481_185.jpg" alt="신의한수">
+                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82481/82481_185.jpg" alt="블랙머니">
                 </div>
 
                 <div class = "box-content">
@@ -138,10 +138,10 @@
 
             <li>
             <div class = "box_rank">
-                    <span><strong>3</strong></span>
+                    <span><strong>3위</strong></span>
                 </div>
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82463/82463_185.jpg" alt="신의한수">
+                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82463/82463_185.jpg" alt="신의 한 수">
                 </div>
 
                 <div class = "box-content">
@@ -166,10 +166,10 @@
 
             <li>
             <div class = "box_rank">
-                    <span><strong>4</strong></span>
+                    <span><strong>4위</strong></span>
                 </div>
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82427/82427_185.jpg" alt="신의한수">
+                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82427/82427_185.jpg" alt="82년생 김지영">
                 </div>
 
                 <div class = "box-content">
@@ -198,11 +198,39 @@
 
             <li>
                 <div class = "box_rank">
-                    <span><strong>5</strong></span>
+                    <span><strong>5위</strong></span>
                 </div>
 
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81895/81895_185.jpg" alt="신의한수">
+                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82379/82379_185.jpg" alt="윤희에게">
+                </div>
+
+                <div class = "box-content">
+                    <div class = "m_title">
+                        <span>윤희에게</span>
+                    </div>
+
+                    <div class = "m_actors">
+                        <span>출연 : 김희애, 김소혜, 성유빈 </span>
+                    </div>
+
+                    <div class ="m_ratings">
+                        <span>12세 관람가</span>
+                    </div>
+
+                    <div class = "m_grade">
+                        <span>9.47 / 10</span>
+                    <div>
+                </div>
+            </li>
+
+            <li>
+                <div class = "box_rank">
+                    <span><strong>6위</strong></span>
+                </div>
+
+                <div class = "box-image">
+                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81895/81895_185.jpg" alt="터미네이터 : 다크 페이트">
                 </div>
 
                 <div class = "box-content">
@@ -223,6 +251,35 @@
                     <div>
                 </div>
             </li>
+
+            <li>
+                <div class = "box_rank">
+                    <span><strong>7위</strong></span>
+                </div>
+
+                <div class = "box-image">
+                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82530/82530_185.jpg" alt="좀비랜드">
+                </div>
+
+                <div class = "box-content">
+                    <div class = "m_title">
+                        <span>좀비 랜드 : 더블 탭</span>
+                    </div>
+
+                    <div class = "m_actors">
+                        <span>출연 : 우디 해럴슨, 제시 아이젠버그  </span>
+                    </div>
+
+                    <div class ="m_ratings">
+                        <span>15세 관람가</span>
+                    </div>
+
+                    <div class = "m_grade">
+                        <span>8.58 / 10</span>
+                    <div>
+                </div>
+            </li>
+
 
 
 
@@ -252,7 +309,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; CSE3010 국민체조 2019</p>
     </div>
     <!-- /.container -->
   </footer>

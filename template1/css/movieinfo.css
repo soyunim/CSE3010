@@ -1,3 +1,12 @@
+@font-face{
+    font-family: odibee;
+    src: url(../OdibeeSans-Regular.ttf);
+}
+
+@font-face{
+    font-family: nanum-reg;
+    src: url(../NanumGothicCoding-Regular.ttf);
+}
 .movielist{
     list-style: none;
     
@@ -19,3 +28,12 @@
 .box-content{
     text-align: center;
 }
+
+.row{ 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;   
+}
+
+h1{
+    font-family: nanum-reg;
+}
+
