@@ -53,8 +53,8 @@
                       관리자 메뉴
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                  <a class="dropdown-item" href="portfolio-1-col.html">직원 관리</a>
-                  <a class="dropdown-item" href="portfolio-2-col.html">매출 관리</a>
+                  <a class="dropdown-item" href="staffmanage.html">직원 관리</a>
+                  <a class="dropdown-item" href="salesmanage.html">매출 관리</a>
                   </div>
               </li>
           </ul>
