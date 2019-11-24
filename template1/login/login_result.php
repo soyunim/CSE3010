@@ -38,8 +38,7 @@
 <?php
 } else{
         $_SESSION["userid"]=$row["id"];
-        $_SESSION["name"]=$row["name"];
-        $_SESSION["membership_rating"]=$row["membership_rating"];
+        $_SESSION["userpw"]=$row["pass"];
 
         header("Location:http://localhost:6563/template1/index.php");
         exit;

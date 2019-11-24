@@ -12,7 +12,7 @@
 	{
 ?>
 		<?=$_SESSION["nick"]?> (level:<?=$_SESSION["level"]?>) |
-		<a href="../login/logout.php">로그아웃</a> | <a href="../member/updateForm.php?id=<?=$_SESSION["userid"]?>">정보수정</a>
+		<a href="../login/logout.php">로그아웃</a> | <a href="../modify.php?id=<?=$_SESSION["userid"]?>">정보수정</a>
 <?php
 	}
 ?>

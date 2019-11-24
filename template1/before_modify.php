@@ -18,6 +18,19 @@
   <link href="css/modern-business.css" rel="stylesheet">
   <link href = "./css/movieinfo.css" rel="stylesheet">
 
+ <script>
+
+      function check_pw(){
+          if(document.member_form.pass.value != $_SESSION["pw"]){
+              alert("비밀번호를확인해 주십시오");
+              document.member_form.pass.focus();
+              return;
+          }
+          document.member_form.submit();
+
+      }
+ </script>
+
 
 </head>
 
@@ -59,24 +72,35 @@
     </nav>
 
   <!-- Page Content -->
-  <div class="container">
+  <div class="container contentbox">
      <h9>개인정보 확인을 위해 비밀번호를 다시 입력하여 주십시오.</h1>
-         <ul>
-             <li>* 아이디</li>
-             <li>* 비밀번호</li>
-         </ul>
-         <ul>
+     <form name="member_form" method="post" action="modify.php">
+         <div id="check">
+             <div id="check_id">
+                 <ul>
+                     <li>* 아이디  : </li>
+                     <li>* 비밀번호 : </li>
+                 </ul>
+             </div>
+             <div id="check_pw">
+                 <ul>
+                     <li> <?=$_SESSION["userpw"]?> 
+                     <li><input type="password" name="pass" required></li>
+                 </ul>
+             </div>
+         </div>
 
+         <div id="button"><a href="#"><img src="./img/button_save.gif"
+             onclick="check_pw()"></a>&nbsp;&nbsp;
+             <a href="./index.php"><img src="./img/button_reset.gif" onclick="reset_form()"></a>
 
-             <li><input type="password" name="pass" required></li>
-
-
-         </ul>
-
+         </div>
+    </form>
   </div>
   <!-- /.container -->
 
   <!-- Footer -->
+
   <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>

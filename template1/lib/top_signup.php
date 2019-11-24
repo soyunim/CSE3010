@@ -9,7 +9,7 @@ if(!isset($_SESSION["userid"]))
 else
 {
 ?>
-	<a class="nav-link" href="before_modify.php">회원정보 수정</a>
+	<a class="nav-link" href="modify.php?id=<?=$_SESSION["userid"]?>">회원정보 수정</a>
 <?php
 }
 ?>
