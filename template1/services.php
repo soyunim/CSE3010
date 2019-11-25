@@ -53,6 +53,8 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
 
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
+    <link href="./css/services.css" rel="stylesheet">
+
     <style>
         .holy {color : red;}
         .blue {color : blue;}
@@ -72,7 +74,7 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php">Movie Theater</a>
+            <a class="navbar-brand" href="index.php">국민영화관</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
