@@ -42,7 +42,7 @@
                 <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="services.html">예매</a> <!--영화예매페이지-->
+                <a class="nav-link" href="services.php">예매</a> <!--영화예매페이지-->
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
