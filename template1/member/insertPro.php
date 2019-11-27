@@ -20,7 +20,7 @@ $pdo = db_connect();
 
         $pdo->beginTransaction();
 
-        $sql = "insert into member.member VALUES(?, ?, ?, ?, ?, ?, now(),default,0,0,0)";
+        $sql = "insert into movie_theater.member VALUES(?, ?, ?, ?, ?, ?, now(),default,0,0,0)";
 
         $stmh = $pdo->prepare($sql);
         $stmh->bindValue(1, $id, PDO::PARAM_STR);

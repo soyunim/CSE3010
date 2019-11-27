@@ -10,7 +10,7 @@
  $pdo = db_connect();
 
  try {
-     $sql = "select * from member.member where id = ? ";
+     $sql = "select * from movie_theater.member where id = ? ";
      $stmh = $pdo->prepare($sql);
      $stmh->bindValue(1,$id,PDO::PARAM_STR);
      $stmh->execute();
