@@ -70,22 +70,22 @@
       <div class="carousel-inner" role="listbox">
         <!-- Slide 1 - 영화 이미지1 -->
         <div class="carousel-item active" style="background-image: url('https://movie-phinf.pstatic.net/20190924_235/1569291518626H2Nq5_JPEG/movie_image.jpg?type=m665_443_2')">
-          <div class="carousel-caption d-none d-md-block">
+          <div class="carousel-caption d-none d-md-block moviebig">
             <h3>신의 한 수: 귀수편</h3>
             <p>사활을 건 대결!
               신의 한 수를 다시 두시겠습니까?</p>
           </div>
         </div>
         <!-- Slide2 - 영화,이벤트,멤버쉽 이미지2 -->
-        <div class="carousel-item" style="background-image: url()">
-          <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
-            <p>This is a description for the second slide.</p>
+        <div class="carousel-item" style="background-image: url('http://www.topstarnews.net/news/photo/201902/585954_263672_5252.jpg');background-size:cover;">
+          <div class="carousel-caption d-none d-md-block moviebig">
+            <h3>겨울왕국2</h3>
+            <p>올라프 <3</p>
           </div>
         </div>
         <!-- Slide 3 - 이미지3 -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-          <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-item" style="background-image: url('https://img.huffingtonpost.com/asset/5d81181f3b00002efad5fd86.jpeg?ops=scalefit_630_noupscale'); background-size:cover;">
+          <div class="carousel-caption d-none d-md-block moviebig">
             <h3>Third Slide</h3>
             <p>This is a description for the third slide.</p>
           </div>
@@ -109,7 +109,7 @@
     <div class="row info_movie">
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <div class="card-body" style="background-image:url(frozen.jpg); background-size:cover;">
+          <div class="card-body" style="background-image:url(img/frozen.jpg); background-size:cover;">
             <div class="whatmovie">
               <button type="button"><img src="img/good.png" style="width:50px;"></button>
               <button type="button"><img src="img/bad.png" style="width:50px;"></button>
@@ -125,7 +125,7 @@
       </div>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <div class="card-body" style="background-image:url(blackmoney.jpg); background-size:cover;">
+          <div class="card-body" style="background-image:url(img/blackmoney.jpg); background-size:cover;">
           <div class="whatmovie">
               <button type="button"><img src="img/good.png" style="width:50px;"></button>
               <button type="button"><img src="img/bad.png" style="width:50px;"></button>
@@ -141,7 +141,7 @@
       </div>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <div class="card-body" style="background-image:url(blackmoney.jpg); background-size:cover;">
+          <div class="card-body" style="background-image:url(img/blackmoney.jpg); background-size:cover;">
           <div class="whatmovie">
               <button type="button"><img src="img/good.png" style="width:50px;"></button>
               <button type="button"><img src="img/bad.png" style="width:50px;"></button>
@@ -157,7 +157,7 @@
       </div>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <div class="card-body" style="background-image:url(blackmoney.jpg); background-size:cover;">
+          <div class="card-body" style="background-image:url(img/blackmoney.jpg); background-size:cover;">
           <div class="whatmovie">
               <button type="button"><img src="img/good.png" style="width:50px;"></button>
               <button type="button"><img src="img/bad.png" style="width:50px;"></button>
@@ -173,63 +173,26 @@
       </div>
     </div>
 
-  <div class="event">
+    <div class="event">
       <h1>EVENT</h1>
-      <div id = "A">
+      <div class="eventbox">
+        <div id = "event1">
+          <div class="top1" OnClick="location.href='#'" style="background-image:url('https://i.ytimg.com/vi/eSEs4B4H-EA/maxresdefault.jpg'); background-size:cover;"></div>
+          <div class="bottom">
+            <div class="bottom1" OnClick="location.href='#'" style="background-image:url('http://img.sbs.co.kr/newsnet/etv/upload/2019/02/14/30000622955_700.jpg'); background-size:cover;"></div>
+            <div class="bottom2" OnClick="location.href='#'" style="background-image:url('http://img.hani.co.kr/imgdb/resize/2018/1017/00501957_20181017.JPG'); background-size:cover;"></div>
+          </div>
+        </div>
+      <div id="event2" OnClick="location.href='#'" style="background-image:url('http://image2.megabox.co.kr//mop/frontbanner/2019/7D/13229E-CA52-4BF9-8971-823CFAFF1613.jpg'); background-size:cover;"></div>
       </div>
+      <!--eventbox-->
 
-
-      <div id="B">
-        <h4>등급별 혜택</h4>
-        <ul class="mem_event">
-          <li class="membership">
-            <a href="#" title="멤버십등급 할인 상세페이지">
-              <img src="img/bronze.png">
-              <p>
-                <strong>브론즈</strong><br>
-                <span>
-                  영화 할인?
-                  포인트적립?
-                  <br>
-                  (1일 1매)
-                </span>
-              </p>
-            </a>
-          </li>
-
-          <li class="membership">
-            <a href="#" title="멤버십등급 할인 상세페이지">
-              <img src="img/silver.png">
-              <p>
-                <strong>실버</strong><br>
-                <span>
-                  혜택이 뭐였죠
-                  <br>
-                  (1일 1매)
-                </span>
-              </p>
-            </a>
-          </li>
-
-          <li class="membership">
-            <a href="#" title="멤버십등급 할인 상세페이지">
-              <img src="img/gold.png">
-              <p>
-                <strong>골드</strong><br>
-                <span>
-                  기억이,,안나요,,
-                  <br>
-                  (1일 1매)
-                </span>
-              </p>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
     </div>
-
+    <!--event-->
   </div>
+  <!--Movie chart & event -->
+
+
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
