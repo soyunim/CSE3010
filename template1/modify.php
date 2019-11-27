@@ -71,7 +71,7 @@
         $pdo = db_connect();
 
         try{
-            $sql = "select * from movie_theater.member where id = ? ";
+            $sql = "select * from moive_theater.member where id = ? ";
             $stmh = $pdo->prepare($sql);
             $stmh->bindValue(1, $id, PDO::PARAM_STR);
             $stmh->execute();
@@ -117,10 +117,10 @@
                     <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="services.html">예매</a> <!--영화예매페이지-->
+                  <a class="nav-link" href="services.php">예매</a> <!--영화예매페이지-->
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">영화</a> <!--영화정보페이지-->
+                  <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

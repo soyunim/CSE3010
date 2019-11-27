@@ -1,0 +1,8 @@
+@font-face{
+    font-family:blackhans;
+    src: url(../BlackHanSans-Regular.ttf);
+}
+
+.navbar-brand{
+    font-family: blackhans;
+}

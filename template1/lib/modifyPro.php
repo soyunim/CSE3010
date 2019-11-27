@@ -20,7 +20,7 @@ $pdo = db_connect();
 
         $pdo->beginTransaction();
 
-        $sql = "update movie_theater.member set pass=?,name=?,hp=?,email=?,regist_day=? where id =?";
+        $sql = "update moive_theater.member set pass=?,name=?,hp=?,email=?,regist_day=? where id =?";
 
         $stmh = $pdo->prepare($sql);
         $stmh->bindValue(1, $pass, PDO::PARAM_STR);
