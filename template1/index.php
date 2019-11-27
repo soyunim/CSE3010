@@ -5,7 +5,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -15,7 +14,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+  <link href="css/home.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
 
@@ -78,7 +77,7 @@
           </div>
         </div>
         <!-- Slide2 - 영화,이벤트,멤버쉽 이미지2 -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url()">
           <div class="carousel-caption d-none d-md-block">
             <h3>Second Slide</h3>
             <p>This is a description for the second slide.</p>
@@ -104,89 +103,133 @@
   </header>
 
   <!-- Page Content -->
-  <div class="container">
+  <div class="container mande">
 
-    <h1 class="my-4">Welcome to Movie Theater</h1>
-
-    <!-- Marketing Icons Section -->
-    <div class="row">
+    <h1 class="my-4">MOVIE CHART</h1>
+    <div class="row info_movie">
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          <div class="card-body" style="background-image:url(frozen.jpg); background-size:cover;">
+            <div class="whatmovie">
+              <button type="button"><img src="img/good.png" style="width:50px;"></button>
+              <button type="button"><img src="img/bad.png" style="width:50px;"></button>
+            </div>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <h4 class="card-header"><a href="#">겨울왕국2</a></h4>
+            <div>
+              <a href="#" class="btn">상세정보</a><a href="#" class="btn">예매하기</a>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+          <div class="card-body" style="background-image:url(blackmoney.jpg); background-size:cover;">
+          <div class="whatmovie">
+              <button type="button"><img src="img/good.png" style="width:50px;"></button>
+              <button type="button"><img src="img/bad.png" style="width:50px;"></button>
+            </div>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <h4 class="card-header"><a href="#">블랙머니</a></h4>
+            <div>
+              <a href="#" class="btn">상세정보</a><a href="#" class="btn">예매하기</a>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          <div class="card-body" style="background-image:url(blackmoney.jpg); background-size:cover;">
+          <div class="whatmovie">
+              <button type="button"><img src="img/good.png" style="width:50px;"></button>
+              <button type="button"><img src="img/bad.png" style="width:50px;"></button>
+            </div>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <h4 class="card-header"><a href="#">영화3</a></h4>
+            <div>
+              <a href="#" class="btn">상세정보</a><a href="#" class="btn">예매하기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body" style="background-image:url(blackmoney.jpg); background-size:cover;">
+          <div class="whatmovie">
+              <button type="button"><img src="img/good.png" style="width:50px;"></button>
+              <button type="button"><img src="img/bad.png" style="width:50px;"></button>
+            </div>
+          </div>
+          <div class="card-footer">
+            <h4 class="card-header"><a href="#">영화4</a></h4>
+            <div>
+              <a href="#" class="btn">상세정보</a><a href="#" class="btn">예매하기</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- /.row -->
 
-    <!-- Portfolio Section -->
+  <div class="event">
+      <h1>EVENT</h1>
+      <div id = "A">
+      </div>
 
-    <!-- /.row -->
 
-    <!-- Features Section -->
-    <div class="row">
-      <div class="col-lg-6">
-        <h2>Modern Business Features</h2>
-        <p>The Modern Business template by Start Bootstrap includes:</p>
-        <ul>
-          <li>
-            <strong>Bootstrap v4</strong>
+      <div id="B">
+        <h4>등급별 혜택</h4>
+        <ul class="mem_event">
+          <li class="membership">
+            <a href="#" title="멤버십등급 할인 상세페이지">
+              <img src="img/bronze.png">
+              <p>
+                <strong>브론즈</strong><br>
+                <span>
+                  영화 할인?
+                  포인트적립?
+                  <br>
+                  (1일 1매)
+                </span>
+              </p>
+            </a>
           </li>
-          <li>jQuery</li>
-          <li>Font Awesome</li>
-          <li>Working contact form with validation</li>
-          <li>Unstyled page elements for easy customization</li>
+
+          <li class="membership">
+            <a href="#" title="멤버십등급 할인 상세페이지">
+              <img src="img/silver.png">
+              <p>
+                <strong>실버</strong><br>
+                <span>
+                  혜택이 뭐였죠
+                  <br>
+                  (1일 1매)
+                </span>
+              </p>
+            </a>
+          </li>
+
+          <li class="membership">
+            <a href="#" title="멤버십등급 할인 상세페이지">
+              <img src="img/gold.png">
+              <p>
+                <strong>골드</strong><br>
+                <span>
+                  기억이,,안나요,,
+                  <br>
+                  (1일 1매)
+                </span>
+              </p>
+            </a>
+          </li>
+          
         </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-      </div>
-      <div class="col-lg-6">
-        <img class="img-fluid rounded" src="http://placehold.it/700x450" alt="">
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
-
-    <!-- Call to Action Section -->
-    <div class="row mb-4">
-      <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-      </div>
-      <div class="col-md-4">
-        <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
       </div>
     </div>
 
   </div>
-  <!-- /.container -->
-
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
