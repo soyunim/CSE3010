@@ -73,40 +73,43 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
 
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">국민영화관</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav ml-auto">
-                  <li class="nav-item"> <!---메뉴바---->
-
-                  </li>
-                <li class="nav-item"> <!---메뉴바---->
-                    <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
-                </li>
-                <li class="nav-item">
-                    <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="services.html">예매</a> <!--영화예매페이지-->
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./movieinfo.php">영화</a> <!--영화정보페이지-->
-                </li>
-                <li class="nav-item dropdown">
+      <div class="container">
+        <a class="navbar-brand" href="index.php"><!---영화관이름 -->국민영화관</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item"> <!---메뉴바---->
+                  <?php include "./lib/login_success.php" ?>
+              </li>
+              <li class="nav-item"> <!---메뉴바---->
+                  <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
+              </li>
+              <li class="nav-item">
+                  <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="mypage.php">MYPAGE</a> <!--마이페이지-->
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="services.php">예매</a> <!--영화예매페이지-->
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
+              </li>
+              <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    관리자 메뉴
+                      관리자 메뉴
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                    <a class="dropdown-item" href="portfolio-1-col.html">직원 관리</a>
-                    <a class="dropdown-item" href="portfolio-2-col.html">매출 관리</a>
+                  <a class="dropdown-item" href="staff.php">직원 관리</a>
+                  <a class="dropdown-item" href="portfolio-2-col.html">매출 관리</a>
                   </div>
-                </li>
-              </ul>
-            </div>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Page Content -->

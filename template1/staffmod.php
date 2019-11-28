@@ -1,3 +1,4 @@
+
 <?php
     session_start();
  ?>
@@ -22,26 +23,7 @@
 
 
             function check_input(){
-                if(!document.member_form.pass.value || !document.member_form.pass_confirm.value ){
-                    alert("비밀번호를 입력해주새요");
-                    document.member_form.nick.focus();
-                    return;
-                }
 
-                if(!document.member_form.hp2.value || !document.member_form.hp3.value ){
-                    alert("휴대폰 번호를 입력하세요");
-                    document.member_form.nick.focus();
-                    return;
-                }
-
-
-                if(document.member_form.pass.value != document.member_form.pass_confirm.value){
-
-                    alert("비밀번호가 일치하지 않습니다.\n다시 입력해주세요.");
-                    document.member_form.pass.focus();
-                    document.member_form.pass.select();
-                    return;
-                }
 
                 document.member_form.submit();
             }
@@ -65,15 +47,15 @@
 
     </head>
     <?php
-        $id = $_REQUEST["id"];
+        $staff_code = $_REQUEST["staff_code"];
 
         require_once("./lib/MYDB.php");
         $pdo = db_connect();
 
         try{
-            $sql = "select * from movie_theater.member where id = ? ";
+            $sql = "select * from movie_theater.staff where staff_code = ? ";
             $stmh = $pdo->prepare($sql);
-            $stmh->bindValue(1, $id, PDO::PARAM_STR);
+            $stmh->bindValue(1, $staff_code, PDO::PARAM_STR);
             $stmh->execute();
             $count = $stmh->rowCount();
 
@@ -86,13 +68,6 @@
             print "검색결과가 없습니다.";
         }
         $row=$stmh->fetch(PDO::FETCH_ASSOC);
-        $hp = explode("-",$row["hp"]);
-        $hp3=$hp[2];
-        $hp2=$hp[1];
-        $email = explode("@",$row["email"]);
-        $email1=$email[0];
-        $email2=$email[1];
-                //print_r($row);
 
 
 
@@ -145,29 +120,29 @@
 
         <div class="container_contentbox">
 
-           <form name="member_form" method="post" action="./lib/modifyPro.php?id=<?=$id?>">
+           <form name="member_form" method="post" action="./lib/staffmodPro.php?staff_code=<?=$staff_code?>">
                <div id="modifyform">
                    <h4>변경하실 회원정보를 입력하여주세요.</h4>
                    <div id="check">
                        <ul>
-                           <li>* 아이디  : </li>
-                           <li>* 변경할 비밀번호 : </li>
-                           <li>* 비밀번호 확인 : </li>
-                           <li>* 이름 : </li>
-                           <li>* 휴대폰 : </li>
-                           <li>&nbsp;&nbsp;&nbsp; 이메일 : </li>
+                           <li>* 직원 코드  : </li>
+                           <li>* 직원 이름: </li>
+                           <li>* 지점 : </li>
+                           <li>* 직급 : </li>
+                           <li>* 급여 : </li>
+                           <li>* 연락처 : </li>
 
                        </ul>
                    </div>
 
                    <div id="modify">
                        <ul>
-                           <li><?=$row["id"]?> </li>
-                           <li><input type = "password" name = "pass" value= "<?=$row["pass"]?>" required></li>
-                           <li><input type = "password" name = "pass_confirm" value= "<?=$row["pass"]?>" required></li>
-                           <li><input type = "text" name = "name" value= "<?=$row["name"]?>" required></li>
-                           <li><input type="text" class="hp" name="hp1" value="010"> - <input type="text" class="hp" name="hp2" value="<?=$hp2?>"> - <input type="text" class="hp" name="hp3" value="<?=$hp3?>"></li>
-                           <li><input type="text" id="email1" name="email1" value="<?=$email1?>"> @ <input type="text" id ="email2" name="email2" value="<?=$email2?>"></li>
+                           <li><?=$row["staff_code"]?> </li>
+                           <li><?=$row["staff_name"]?> </li>
+                           <li><input type = "text" name = "branch" value= "<?=$row["branch"]?>" required></li>
+                           <li><input type = "text" name = "staff_rank" value= "<?=$row["staff_rank"]?>" required></li>
+                           <li><input type = "text" name = "salary" value= "<?=$row["salary"]?>" required></li>
+                           <li><input type = "text" name = "staff_phone" value= "<?=$row["staff_phone"]?>" required></li>
                            <li id="must">* 는 필수 입력항목입니다.^^</li>
                        </ul>
                    </div>
