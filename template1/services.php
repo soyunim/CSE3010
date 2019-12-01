@@ -53,18 +53,8 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
 
     <!-- Custom styles for this template -->
     <link href="css/modern-business.css" rel="stylesheet">
-    <link href="./css/services.css" rel="stylesheet">
-
-    <style>
-        .holy {color : red;}
-        .blue {color : blue;}
-        .black {color : black;}
-        .gray {color : gray;}
-        .active {
-            border: 1px solid black;
-            border-radius: 12px;
-        }
-    </style>
+    <link href="css/services.css" rel="stylesheet">
+    <!-- <script src="reserve/seat.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
@@ -73,43 +63,40 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
 
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.php"><!---영화관이름 -->국민영화관</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-              <li class="nav-item"> <!---메뉴바---->
-                  <?php include "./lib/login_success.php" ?>
-              </li>
-              <li class="nav-item"> <!---메뉴바---->
-                  <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
-              </li>
-              <li class="nav-item">
-                  <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="mypage.php">MYPAGE</a> <!--마이페이지-->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="services.php">예매</a> <!--영화예매페이지-->
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
-              </li>
-              <li class="nav-item dropdown">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">국민영화관</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"> <!---메뉴바---->
+
+                  </li>
+                <li class="nav-item"> <!---메뉴바---->
+                    <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
+                </li>
+                <li class="nav-item">
+                    <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="services.html">예매</a> <!--영화예매페이지-->
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./movieinfo.php">영화</a> <!--영화정보페이지-->
+                </li>
+                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      관리자 메뉴
+                    관리자 메뉴
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                  <a class="dropdown-item" href="staff.php">직원 관리</a>
-                  <a class="dropdown-item" href="portfolio-2-col.html">매출 관리</a>
+                    <a class="dropdown-item" href="portfolio-1-col.html">직원 관리</a>
+                    <a class="dropdown-item" href="portfolio-2-col.html">매출 관리</a>
                   </div>
-            </li>
-          </ul>
+                </li>
+              </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
     <!-- Page Content -->
@@ -166,13 +153,13 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
                             </td>
                           </tr>
                           <tr class="info">
-                            <th style="width:14%;text-align:center;">일</th>
+                            <th style="width:14%;text-align:center;color:red;">일</th>
                             <th style="width:14%;text-align:center;">월</th>
                             <th style="width:14%;text-align:center;">화</th>
                             <th style="width:14%;text-align:center;">수</th>
                             <th style="width:14%;text-align:center;">목</th>
                             <th style="width:14%;text-align:center;">금</th>
-                            <th style="width:14%;text-align:center;">토</th>
+                            <th style="width:14%;text-align:center;color:blue;">토</th>
                           </tr>
                           <tr height=<?php echo $cellh;?>>
 
@@ -215,11 +202,11 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
 
 
                                 if ($date == $today && $year == $thisyear && $month == $thismonth) { ?>
-                                    <td align=center id=<?php echo "$year-$month-$mday"?>>
+                                    <td align=center class=<?php echo "$style"?> id=<?php echo "$year-$month-$mday"?>>
                                 <?php } else {?>
-                                    <td align=center id=<?php echo "$year-$month-$mday"?>>
+                                    <td align=center class=<?php echo "$style"?> id=<?php echo "$year-$month-$mday"?>>
                         		<?php }
-                        			CalendarPrint($style,$mday);
+                        			CalendarPrint($mday);
                         			echo "</td>\n";
                                 ?>
                                 <script>
@@ -249,8 +236,8 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
                             }
                             echo("</td>\n");
 
-                        	function CalendarPrint($style,$mday){
-                        		echo "<font border-radius:10px; class=".$style.">$mday</font><br/>";
+                        	function CalendarPrint($mday){
+                        		echo "$mday<br/>";
                         	}
 
                         	function SkipOffset($no, $sdate = '', $edate = '') {
@@ -333,7 +320,17 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
                     <h4 class="card-header">영화</h4>
                     <div class="card-body">
                         <script>
-                            function movies(ttid){
+                            function movies(ttid,th,length){
+                                    var cgroup = [];
+                                    for(let i = 0; i < length; i++){
+                                        cgroup[i] = document.getElementById(`theater${i}`);
+                                    }
+                                    for(let i = 0; i < length; i++){
+                                        if(cgroup[i].classList.contains('li_active')){
+                                            cgroup[i].classList.remove('li_active');
+                                        }
+                                    }
+                                    cgroup[th].className = 'li_active';
                                     for(let i = 0; i < tabnum; i++){
                                         if(tdGroup[i].classList.contains('active')){ //tdGroup에 active한 classList가 있다면 remove한다.
                                             var val = tdGroup[i].getAttribute('id');
@@ -344,7 +341,6 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
                             		var month = date[1];
                             		var day = date[2];
                                     var num = ttid; // ttid는 극장의 고유번호값. 그래서 찾으면됨
-                                    console.log(date);
                                     $.ajax({
                                         url : 'reserve/movies.php',
                                         type : 'POST',
@@ -368,29 +364,40 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
                     <h4 class="card-header">시간</h4>
                     <div class="card-body">
                         <script>
-                            // function time(ttid){
-                            //     for(let i = 0; i < tabnum; i++){
-                            //         if(tdGroup[i].classList.contains('active')){ //tdGroup에 active한 classList가 있다면 remove한다.
-                            //             var val = tdGroup[i].getAttribute('id');
-                            //         }
-                            //     }
-                            //     var date = val.split('-');
-                            //     var year = date[0];
-                            //     var month = date[1];
-                            //     var day = date[2];
-                            //     var num = ttid; // ttid는 극장의 고유번호값. 그래서 찾으면됨
-                            //     $.ajax({
-                            //         url : 'reserve/movies.php',
-                            //         type : 'POST',
-                            //         data : {year:date[0],month:date[1],day:date[2],num:ttid},
-                            //         success : function(data){
-                            //             document.getElementById('test2').innerHTML = data;
-                            //         },
-                            //         error: function(jqXHR, textStatus, errorThrown){
-                            //             alert("arjax error : " + textStatus + "\n" + errorThrown);
-                            //         }
-                            //     });
-                            // }
+                            function time(title,ttid,th,length){
+                                var cgroup = [];
+                                for(let i = 0; i < length; i++){
+                                    cgroup[i] = document.getElementById(`movie${i}`);
+                                }
+                                for(let i = 0; i < length; i++){
+                                    if(cgroup[i].classList.contains('li_active')){
+                                        cgroup[i].classList.remove('li_active');
+                                    }
+                                }
+                                cgroup[th].className = 'li_active';
+                                for(let i = 0; i < tabnum; i++){
+                                    if(tdGroup[i].classList.contains('active')){ //tdGroup에 active한 classList가 있다면 remove한다.
+                                        var val = tdGroup[i].getAttribute('id');
+                                    }
+                                }
+                                var date = val.split('-');
+                                var year = date[0];
+                                var month = date[1];
+                                var day = date[2];
+                                var num = ttid; // ttid는 극장의 고유번호값. 그래서 찾으면됨
+                                var ttitle = title;
+                                $.ajax({
+                                    url : 'reserve/time.php',
+                                    type : 'POST',
+                                    data : {year:date[0],month:date[1],day:date[2],num:ttid, ttitle:title},
+                                    success : function(data){
+                                        document.getElementById('test3').innerHTML = data;
+                                    },
+                                    error: function(jqXHR, textStatus, errorThrown){
+                                        alert("arjax error : " + textStatus + "\n" + errorThrown);
+                                    }
+                                });
+                            }
                         </script>
                         <p id="test3">
                         </p>
@@ -400,9 +407,272 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
         </div>
         <!-- /.row -->
 
+        <script>
+
+        </script>
+
+    <div>
+        <h2 id="seat_choice">좌석 선택</h2>
+            <caption>
+                <details>
+                    <summary>좌석선택 폼</summary>
+                        <div class="seatSelection col-lg-12">
+                            <div class="seatsChart col-lg-offset-6">
+                                <div class="row2">
+
+                                <div class="seats">
+                                <div class="seatRow">
+                                    <div class="seatRowNumber">
+                                        A
+                                    </div>
+                                    <div id="A_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">1</div>
+                                    <div id="A_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">2</div>
+                                    <div id="A_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">3</div>
+                                    <div id="A_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">4</div>
+                                    <div id="A_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">5</div>
+                                    <div id="A_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">6</div>
+                                    <div id="A_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
+                                    <div id="A_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">8</div>
+
+
+                                </div>
+                                <div class="seatRow">
+                                    <div class="seatRowNumber">
+                                        B
+                                    </div>
+                                    <div id="B_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">1</div>
+                                    <div id="B_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">2</div>
+                                    <div id="B_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">3</div>
+                                    <div id="B_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">4</div>
+                                    <div id="B_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">5</div>
+                                    <div id="B_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">6</div>
+                                    <div id="B_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
+                                    <div id="B_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">8</div>
+
+                                </div>
+                                <div class="seatRow">
+                                    <div class="seatRowNumber">
+                                        C
+                                    </div>
+                                    <div id="C_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">1</div>
+                                    <div id="C_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">2</div>
+                                    <div id="C_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">3</div>
+                                    <div id="C_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">4</div>
+                                    <div id="C_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">5</div>
+                                    <div id="C_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">6</div>
+                                    <div id="C_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
+                                    <div id="C_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">8</div>
+
+                                </div>
+                                <div class="seatRow">
+                                    <div class="seatRowNumber">
+                                        D
+                                    </div>
+                                    <div id="D_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">1</div>
+                                    <div id="D_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">2</div>
+                                    <div id="D_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">3</div>
+                                    <div id="D_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">4</div>
+                                    <div id="D_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">5</div>
+                                    <div id="D_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable ">6</div>
+                                    <div id="D_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
+                                    <div id="D_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">8</div>
+                                </div>
+                                <div class="seatRow">
+                                    <div class="seatRowNumber">
+                                        E
+                                    </div>
+                                    <div id="E_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">1</div>
+                                    <div id="E_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">2</div>
+                                    <div id="E_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">3</div>
+                                    <div id="E_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">4</div>
+                                    <div id="E_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">5</div>
+                                    <div id="E_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable ">6</div>
+                                    <div id="E_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
+                                    <div id="E_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">8</div>
+                                </div>
+                            </div>
+                            <div class="seatsReceipt">
+                                <p class="print_seat"><strong>선택 좌석 : <span class="seatsAmount">0</span></strong></p><button id="btnClear" class="btn btn_clear">Clear</button>
+                                <ul id="seatsList" class="nav nav-stacked"></ul>
+                            </div>
+                                <!-- </div> -->
+
+                            <div class="seatsFinal">
+                                <div class="in">
+                                    <span>총 가격 : </span><span class="txtSubTotal">0</span><span>원</span>
+                                    <br />
+                                    <button id="btnCheckout" name="btnCheckout" class="btn btn-primary"> 결제 선택 </button>
+                                </div>
+                            </div>
+                            </div>
+
+                            <script>
+                            $(".seatNumber").click(
+                                // thisId = $(this).attr('id');
+                                // id = thisId.split("_");
+                                function () {
+                                    if (!$(this).hasClass("seatUnavailable")){
+                                        // If selected, unselect it
+                                        if ($(this).hasClass("seatSelected")) {
+                                            var thisId = $(this).attr('id');
+                                            var price = $('#seatsList .' + thisId).val();
+                                            $(this).removeClass("seatSelected");
+                                            $('#seatsList .' + thisId).remove();
+                                            // Calling functions to update checkout total and seat counter.
+                                            removeFromCheckout(price);
+                                            refreshCounter();
+                                        }
+                                        else {
+                                            // else, select it
+                                            // getting values from Seat
+                                            var thisId = $(this).attr('id');
+                                            var id = thisId.split("_");
+                                            var price = $(this).attr('value');
+
+
+                                            var freeSeats = parseInt($('.freeSeats').first().text());
+                                            var selectedSeats = parseInt($(".seatSelected").length);
+
+                                            // If you have free seats available the price of this one will be 0.
+                                            if (selectedSeats < freeSeats) {
+                                                price = 0;
+                                            }
+
+                                            // Adding this seat to the list
+                                            var seatDetails1 = "좌석 : " + id[0] + id[1];
+                                            $("#seatsList").append('<li value=' + price + ' class=' + thisId + '>' + seatDetails1 + "</li>");
+                                            $(this).addClass("seatSelected");
+
+                                            addToCheckout(price);
+                                            refreshCounter();
+                                        }
+                                    }
+                                }
+                            );
+                            // Clicking any of the dynamically-generated X buttons on the list
+                            $(document).on('click', ".removeSeat", function () {
+                                // Getting the Id of the Seat
+                                var id = $(this).attr('id').split(":");
+                                var price = $(this).attr('value')
+                                $('#seatsList .' + id[1]).remove();
+                                $("#" + id[1] + ".seatNumber").removeClass("seatSelected");
+                                removeFromCheckout(price);
+                                refreshCounter();
+                              }
+                          );
+                            // Show tooltip on hover.
+                            $(".seatNumber").hover(
+                                function () {
+                                    if (!$(this).hasClass("seatUnavailable")) {
+                                        var id = $(this).attr('id');
+                                        var id = id.split("_");
+                                        var price = $(this).attr('value');
+                                        var tooltip = "Row: " + id[0] + " Seat:" + id[1] + " Price:CA$:" + price;
+
+                                        $(this).prop('title', tooltip);
+                                    } else
+                                    {
+                                        $(this).prop('title', "Seat unavailable");
+                                    }
+                                }
+                                );
+                            // Function to refresh seats counter
+                            function refreshCounter() {
+                                $(".seatsAmount").text($(".seatSelected").length);
+                            }
+                            // Add seat to checkout
+                            function addToCheckout(thisSeat) {
+                                var seatPrice = parseInt(thisSeat);
+                                var num = parseInt($('.txtSubTotal').text());
+                                num += seatPrice;
+                                num = num.toString();
+                                $('.txtSubTotal').text(num);
+                            }
+                            // Remove seat from checkout
+                            function removeFromCheckout(thisSeat) {
+                                var seatPrice = parseInt(thisSeat);
+                                var num = parseInt($('.txtSubTotal').text());
+                                num -= seatPrice;
+                                num = num.toString();
+                                $('.txtSubTotal').text(num);
+                            }
+
+                            // Clear seats.
+                            $("#btnClear").click(
+                                function () {
+                                    $('.txtSubTotal').text(0);
+                                    $(".seatsAmount").text(0);
+                                    $('.seatSelected').removeClass('seatSelected');
+                                    $('#seatsList li').remove();
+                                }
+                            );
+                            function seat(title,time,id,th,length){
+                                var cgroup = [];
+                                for(let i = 0; i < length; i++){
+                                    cgroup[i] = document.getElementById(`time${i}`);
+                                }
+                                for(let i = 0; i < length; i++){
+                                    if(cgroup[i].classList.contains('li_active')){
+                                        cgroup[i].classList.remove('li_active');
+                                    }
+                                }
+                                cgroup[th].className = 'li_active';
+
+                                for(let i = 0; i < tabnum; i++){
+                                    if(tdGroup[i].classList.contains('active')){ //tdGroup에 active한 classList가 있다면 remove한다.
+                                        var val = tdGroup[i].getAttribute('id');
+                                    }
+                                }
+                                var date = val.split('-');
+                                var year = date[0];
+                                var month = date[1];
+                                var day = date[2];
+                                var id = id; // iid는 극장의 고유번호값.
+                                var title = title;
+                                var time = time;
+                                $("#btnCheckout").click(
+                                    function () {
+                                        var idlist = new Array;
+                                        $("div[class='seatNumber seatSelected']").each(function(i){
+                                            var sel_seat = $(this).attr('id');
+
+                                            // unavailable 좌석
+                                            $(this).removeClass("seatSelected");
+                                            $(this).addClass("seatUnavailable");
+
+                                            idlist.push(sel_seat);
+
+                                        });
+                                        $.ajax({
+                                            url : 'reserve/reserve.php',
+                                            type : 'POST',
+                                            data : {year:year,month:month,day:day,id:id, title:title, time:time, seat:idlist},
+                                            success : function(data){
+                                                if(data == 0){
+                                                    alert("실패!");
+                                                } else {
+                                                    alert("결제가 완료되었습니다.");
+                                                    location.href = "movieinfo.php";
+                                                }
+                                            },
+                                            error: function(jqXHR, textStatus, errorThrown){
+                                                alert("arjax error : " + textStatus + "\n" + errorThrown);
+                                            }
+                                        });
+                                    }
+                                );
+                            }
+
+
+                            </script>
+                        </div>
+                    </div>
+                </details>
+            </caption>
+        </div>
     </div>
     <!-- /.container -->
-
+    <div style="clear:both;"></div>
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
