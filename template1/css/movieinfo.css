@@ -19,3 +19,11 @@
 .box-content{
     text-align: center;
 }
+
+li{
+    margin-right: 8px;
+}
+
+.m_title{
+    font-weight: bold;
+}

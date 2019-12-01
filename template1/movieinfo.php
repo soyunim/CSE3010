@@ -81,7 +81,13 @@
 
       <!-- Movie List -->
       <div class="col-lg-4 mb-4">
-        <h4>현재 상영작</h4>
+        <h4><strong>현재 상영작</strong>/<a href="set_released.php">개봉 예정작</a></h4>
+        <?php 
+            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $select = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=1";
+            $result = mysqli_query($conn, $select); 
+            $row = mysqli_fetch_array($result);
+        ?>
         <ol class = "movielist"> <!-- 1위~4위 -->
             <li>
                 <div class = "box_rank">
@@ -89,196 +95,223 @@
                 </div>
 
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82014/82014_185.jpg" alt="겨울왕국2">
+                    <a href="./movieinfo/frozen2.php"><img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82014/82014_185.jpg" alt="겨울왕국2"></a>
                 </div>
 
                 <div class = "box-content">
                     <div class = "m_title">
-                        <span>겨울왕국 2</span>
+                        <span><?php echo $row[0]; ?></span>
                     </div>
 
                     <div class = "m_actors">
-                        <span>출연 : 크리스틴 벨, 이디나 멘젤, 조시 게드</span>
+                        <span>출연 : <?php echo $row[1]; ?> </span>
                     </div>
 
                     <div class ="m_ratings">
-                        <span>전체 관람가</span>
+                        <span><?php echo $row[2]; ?> </span>
                     </div>
 
                     <div class = "m_grade">
-                        <span>??? / 10</span>
+                        <span>평점: <?php echo $row[3]; ?> </span>
                     <div>
                 </div>
             </li>
-
+            <?php 
+            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $select1 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=2";
+            $result1 = mysqli_query($conn, $select1); 
+            $row1 = mysqli_fetch_array($result1);
+            ?>
             <li>
                 <div class = "box_rank">
                     <span><strong>2위</strong></span>
                 </div>
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82481/82481_185.jpg" alt="블랙머니">
+                    <a href="movieinfo/blackmoney.php"><img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82481/82481_185.jpg" alt="블랙머니"></a>
                 </div>
 
                 <div class = "box-content">
                     <div class = "m_title">
-                        <span>블랙머니</span>
+                        <span><?php echo $row1[0]; ?></span>
                     </div>
 
                     <div class = "m_actors">
-                        <span>출연 : 조진웅, 이하늬, 이경영</span>
+                        <span>출연 : <?php echo $row1[1]; ?> </span>
                     </div>
 
                     <div class ="m_ratings">
-                        <span>12세 관람가</span>
+                        <span><?php echo $row1[2]; ?> </span>
                     </div>
 
                     <div class = "m_grade">
-                        <span>9.11 / 10</span>
+                        <span>평점: <?php echo $row1[3]; ?> </span>
                     <div>
-
                 </div>
             </li>
-
+            <?php 
+            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $select2 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=3";
+            $result2 = mysqli_query($conn, $select2); 
+            $row2 = mysqli_fetch_array($result2);
+            ?>
             <li>
             <div class = "box_rank">
                     <span><strong>3위</strong></span>
                 </div>
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82463/82463_185.jpg" alt="신의 한 수">
+                    <a href="./movieinfo/divinemove2.php"><img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82463/82463_185.jpg" alt="신의 한 수"></a>
                 </div>
 
                 <div class = "box-content">
                     <div class = "m_title">
-                        <span>신의 한 수 : 귀수편</span>
+                        <span><?php echo $row2[0]; ?></span>
                     </div>
 
                     <div class = "m_actors">
-                        <span>출연 : 권상우, 김희원, 김성균, 우도환</span>
+                        <span>출연 : <?php echo $row2[1]; ?> </span>
                     </div>
 
                     <div class ="m_ratings">
-                        <span>15세 관람가</span>
+                        <span><?php echo $row2[2]; ?> </span>
                     </div>
 
                     <div class = "m_grade">
-                        <span>8.93 / 10</span>
+                        <span>평점: <?php echo $row2[3]; ?> </span>
                     <div>
-
                 </div>
             </li>
-
+            <?php 
+            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $select3 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=4";
+            $result3 = mysqli_query($conn, $select3); 
+            $row3 = mysqli_fetch_array($result3);
+            ?>
             <li>
             <div class = "box_rank">
                     <span><strong>4위</strong></span>
                 </div>
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82427/82427_185.jpg" alt="82년생 김지영">
+                    <a href="./movieinfo/kimjiyoung.php"><img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82427/82427_185.jpg" alt="82년생 김지영"></a>
                 </div>
 
                 <div class = "box-content">
                     <div class = "m_title">
-                        <span>82년생 김지영</span>
+                        <span><?php echo $row3[0]; ?></span>
                     </div>
 
                     <div class = "m_actors">
-                        <span>출연 : 정유미, 공유, 김미경  </span>
+                        <span>출연 : <?php echo $row3[1]; ?> </span>
                     </div>
 
                     <div class ="m_ratings">
-                        <span>12세 관람가</span>
+                        <span><?php echo $row3[2]; ?> </span>
                     </div>
 
                     <div class = "m_grade">
-                        <span>9.22 / 10</span>
+                        <span>평점: <?php echo $row3[3]; ?> </span>
                     <div>
-
                 </div>
             </li>
 
         </ol>
 
         <ol class = "movielist">
-
+            <?php 
+            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $select4 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=5";
+            $result4 = mysqli_query($conn, $select4); 
+            $row4 = mysqli_fetch_array($result4);
+            ?>
             <li>
                 <div class = "box_rank">
                     <span><strong>5위</strong></span>
                 </div>
 
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82379/82379_185.jpg" alt="윤희에게">
+                    <a href="./movieinfo/moonlit.php"><img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82379/82379_185.jpg" alt="윤희에게"></a>
                 </div>
 
                 <div class = "box-content">
                     <div class = "m_title">
-                        <span>윤희에게</span>
+                        <span><?php echo $row4[0]; ?></span>
                     </div>
 
                     <div class = "m_actors">
-                        <span>출연 : 김희애, 김소혜, 성유빈 </span>
+                        <span>출연 : <?php echo $row4[1]; ?> </span>
                     </div>
 
                     <div class ="m_ratings">
-                        <span>12세 관람가</span>
+                        <span><?php echo $row4[2]; ?> </span>
                     </div>
 
                     <div class = "m_grade">
-                        <span>9.47 / 10</span>
+                        <span>평점: <?php echo $row4[3]; ?> </span>
                     <div>
                 </div>
             </li>
-
+            <?php 
+            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $select5 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=6";
+            $result5 = mysqli_query($conn, $select5); 
+            $row5 = mysqli_fetch_array($result5);
+            ?>
             <li>
                 <div class = "box_rank">
                     <span><strong>6위</strong></span>
                 </div>
 
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81895/81895_185.jpg" alt="터미네이터 : 다크 페이트">
+                    <a href="./movieinfo/terminator.php"><img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81895/81895_185.jpg" alt="터미네이터 : 다크 페이트"></a>
                 </div>
 
                 <div class = "box-content">
                     <div class = "m_title">
-                        <span>터미네이터 : 다크 페이트</span>
+                        <span><?php echo $row5[0]; ?></span>
                     </div>
 
                     <div class = "m_actors">
-                        <span>출연 : 멕켄지 데이비스, 아놀드 슈왈제네거  </span>
+                        <span>출연 : <?php echo $row5[1]; ?> </span>
                     </div>
 
                     <div class ="m_ratings">
-                        <span>15세 관람가</span>
+                        <span><?php echo $row5[2]; ?> </span>
                     </div>
 
                     <div class = "m_grade">
-                        <span>8.61 / 10</span>
+                        <span>평점: <?php echo $row5[3]; ?> </span>
                     <div>
                 </div>
             </li>
-
+            <?php 
+            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $select6 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=7";
+            $result6 = mysqli_query($conn, $select6); 
+            $row6 = mysqli_fetch_array($result6);
+            ?>
             <li>
                 <div class = "box_rank">
                     <span><strong>7위</strong></span>
                 </div>
 
                 <div class = "box-image">
-                    <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82530/82530_185.jpg" alt="좀비랜드">
+                    <a href="./movieinfo/zombieland.php"><img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82530/82530_185.jpg" alt="좀비랜드"></a>
                 </div>
 
                 <div class = "box-content">
                     <div class = "m_title">
-                        <span>좀비 랜드 : 더블 탭</span>
+                        <span><?php echo $row6[0]; ?></span>
                     </div>
 
                     <div class = "m_actors">
-                        <span>출연 : 우디 해럴슨, 제시 아이젠버그  </span>
+                        <span>출연 : <?php echo $row6[1]; ?> </span>
                     </div>
 
                     <div class ="m_ratings">
-                        <span>15세 관람가</span>
+                        <span><?php echo $row6[2]; ?> </span>
                     </div>
 
                     <div class = "m_grade">
-                        <span>8.58 / 10</span>
+                        <span>평점: <?php echo $row6[3]; ?> </span>
                     <div>
                 </div>
             </li>
@@ -294,6 +327,7 @@
       </div>
     </div>
     <!-- /.row -->
+    <?php mysqli_close($conn); ?>
 
 
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
