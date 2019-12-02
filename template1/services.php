@@ -32,7 +32,10 @@ $pre_year = $year - 1;
 $next_year = $year + 1;
 
 include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
+<<<<<<< HEAD
 session_start();
+=======
+>>>>>>> bc1ab63bb94f62076b259d752ba7f025fdfdeb05
 ?>
 
 
@@ -619,6 +622,7 @@ session_start();
                             var name = name;
                             var title = title;
                             var time = time;
+<<<<<<< HEAD
 
                             var user_id = '<?=$_SESSION["userid"]?>'; //user_id값을 받는다.
 
@@ -660,6 +664,47 @@ session_start();
                                     $("div[class='seatNumber seatSelected']").each(function(i){
                                         var sel_seat = $(this).attr('id');
 
+=======
+
+                            // var user_id = user_id; //user_id값을 받는다.
+
+                            var choice_button = document.getElementById("choice_seat");
+                            choice_button.style.backgroundColor = "rgb(213, 63, 63)";
+                            choice_button.style.color = "rgb(255, 255, 255)";
+
+                            $("#choice_seat").click(
+                                function () {
+                                    var test_model = document.getElementById("test_model_overlay");
+                                    test_model.style.opacity = 1;
+                                    test_model.style.display = 'block';
+                                    var model = document.getElementById("js-model");
+                                    model.style.display = "block";
+                                    var js_model = document.getElementById("js-model-holder");
+                                    js_model.style.display = "block";
+                                }
+                            )
+                            $("#close").click(
+                                function () {
+                                    var test_model = document.getElementById("test_model_overlay");
+                                    test_model.style.opacity = 0;
+                                    test_model.style.display = 'none';
+                                    var model = document.getElementById("js-model");
+                                    model.style.display = 'none';
+                                    var js_model = document.getElementById("js-model-holder");
+                                    js_model.style.display = 'none';
+                                }
+                            )
+                            $("#btnCheckout").click(
+                                function () {
+                                    // if(!(user_id)){
+                                    //     alert("로그인 후 이용해주시길 바랍니다.");
+                                    //     location.href("login/login_form.php");
+                                    // }
+                                    var idlist = new Array;
+                                    $("div[class='seatNumber seatSelected']").each(function(i){
+                                        var sel_seat = $(this).attr('id');
+
+>>>>>>> bc1ab63bb94f62076b259d752ba7f025fdfdeb05
                                         // unavailable 좌석
                                         $(this).removeClass("seatSelected");
                                         $(this).addClass("seatUnavailable");
@@ -670,7 +715,11 @@ session_start();
                                     $.ajax({
                                         url : 'reserve/reserve.php',
                                         type : 'POST',
+<<<<<<< HEAD
                                         data : {date:date,name:name, title:title, time:time, seat:idlist, id:user_id},
+=======
+                                        data : {date:date,name:name, title:title, time:time, seat:idlist},
+>>>>>>> bc1ab63bb94f62076b259d752ba7f025fdfdeb05
                                         success : function(data){
                                             if(data == 0){
                                                 alert("실패!");
