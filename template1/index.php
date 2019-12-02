@@ -137,7 +137,7 @@
           <div class="card-footer">
             <h4 class="card-header"><a href="#">블랙머니</a></h4>
             <div>
-              <a href="#" class="btn">상세정보</a><a href="#" class="btn">예매하기</a>
+              <a href="./movieinfo/blackmoney.php" class="btn">상세정보</a><a href="#" class="btn">예매하기</a>
             </div>
           </div>
         </div>
