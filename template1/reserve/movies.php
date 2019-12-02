@@ -7,7 +7,7 @@ $test3 = $_POST['day'];
 $test4 = $_POST['num'];
 
 
-$sql = "SELECT * FROM movies where id=$test4 and date='$test1-$test2-$test3'";
+$sql = "SELECT * FROM timetable where id=$test4 and date='$test1-$test2-$test3'";
 $result = mysqli_query($dbconn, $sql);
 while ($R = mysqli_fetch_array($result)) {
     $schedule[] = array(0 => $R['title'],1 => $R['date'],2 => $R['id']);

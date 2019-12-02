@@ -298,7 +298,7 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
                         		var month = date[1];
                         		var day = date[2];
                                 $.ajax({
-                                    url : 'reserve/theater.php',
+                                    url : './reserve/theater.php',
                                     type : 'POST',
                                     data : {year:date[0],month:date[1],day:date[2]},
                                     success : function(data){
@@ -346,6 +346,7 @@ include_once 'reserve/holiday.php';  //양력.음력 변환 인클루드
                                         type : 'POST',
                                         data : {year:date[0],month:date[1],day:date[2],num:ttid},
                                         success : function(data){
+                                            console.log(data);
                                             document.getElementById('test2').innerHTML = data;
                                         },
                                         error: function(jqXHR, textStatus, errorThrown){
