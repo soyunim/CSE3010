@@ -32,7 +32,7 @@ $pdo = db_connect();
         $stmh->execute();
         $pdo->commit();
 
-        header("Location:http://localhost:6563/template1/index.php");
+        header("Location:http://localhost:8888/template1/index.php");
 
     } catch (PDOException $Exception) {
 

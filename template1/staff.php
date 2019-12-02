@@ -33,8 +33,9 @@
     $stmh->execute();
     $yourArray = array();
     $i=1;
-    while($i<10){
-        $row=$stmh->fetch(PDO::FETCH_ASSOC);
+    $yourArray[$i] = $row;
+    while($row=$stmh->fetch(PDO::FETCH_ASSOC)){
+
         $yourArray[$i] = $row;
         $i++;
     }
@@ -104,7 +105,7 @@
               </thead>
               <tbody>
                   <?php
-                  for($i=1;$i<10;$i++){
+                  for($i=1;$i<count($yourArray)+1;$i++){
                   ?>
                   <tr>
                       <td data-label="staff_code"><?=$yourArray[$i]["staff_code"]?></td>

@@ -19,10 +19,25 @@
 
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
+
   <?php
 
       require_once("./lib/MYDB.php");
       $pdo = db_connect();
+
+      $a = $_SESSION["userid"];
+      $sql = "select * from movie_theater.reservation_info where id ='$a'";
+      $stmh = $pdo->prepare($sql);
+      $stmh->execute();
+      $yourArray = array();
+      $i=1;
+      $yourArray[$i] = $row;
+      while($row=$stmh->fetch(PDO::FETCH_ASSOC)){
+
+          $yourArray[$i] = $row;
+          $i++;
+      }
+
 
   ?>
 
@@ -152,39 +167,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td data-label="title">한대앞역점</td>
-                <td data-label="title">겨울왕국</td>
-                <td data-label="book Date">12/12/2019</td>
-                <td data-label="book time">11:30~13:40</td>
-                <td data-label="info">제 3관/j10,j11/2명</td>
-                <td data-lable ="review"><button id="go_review_page" onclick="location.href= 'review.php?id=<?=$_SESSION["userid"]?>' "type="button" title="리뷰작성페이지로 이동">리뷰작성</button></td>
-            </tr>
-            <tr>
-                <td data-label="title">한대앞역점</td>
-                <td data-label="title">겨울왕국</td>
-                <td data-label="book Date">12/12/2019</td>
-                <td data-label="book time">11:30~13:40</td>
-                <td data-label="info">제 3관/j10,j11/2명</td>
-                <td data-lable ="review"><button id="go_review_page" onclick="location.href= 'review.php?id=<?=$_SESSION["userid"]?>' "type="button" title="리뷰작성페이지로 이동">리뷰작성</button></td>
-            </tr>
-            <tr>
-                <td data-label="title">중앙역점</td>
-                <td data-label="title">겨울왕국</td>
-                <td data-label="book Date">12/12/2019</td>
-                <td data-label="book time">11:30~13:40</td>
-                <td data-label="info">제 3관/j10,j11/2명</td>
-                <td data-lable ="review"><button id="go_review_page" onclick="location.href= 'review.php?id=<?=$_SESSION["userid"]?>' "type="button" title="리뷰작성페이지로 이동">리뷰작성</button></td>
-            </tr>
-            <tr>
-                <td data-label="title">중앙역점</td>
-                <td data-label="title">겨울왕국</td>
-                <td data-label="book Date">12/12/2019</td>
-                <td data-label="book time">11:30~13:40</td>
-                <td data-label="info">제 3관/j10,j11/2명</td>
-                <td data-lable ="review"><button id="go_review_page" onclick="location.href= 'review.php?id=<?=$_SESSION["userid"]?>' "type="button" title="리뷰작성페이지로 이동">리뷰작성</button></td>
-            </tr>
-
+                <?php
+                for($i=1;$i<count($yourArray)+1;$i++){
+                ?>
+                <tr>
+                    <td data-label="branch_name"><?=$yourArray[$i]["branch_name"]?></td>
+                    <td data-label="title"><?=$yourArray[$i]["title"]?></td>
+                    <td data-label="movie_date"><?=$yourArray[$i]["movie_date"]?></td>
+                    <td data-label="movie_time"><?=$yourArray[$i]["movie_time"]?></td>
+                    <td data-label="seat"><?=$yourArray[$i]["seat"]?></td>
+                    <td data-lable ="review"><button id="go_review_page" onclick="location.href= 'staffmod.php?staff_code=<?=$yourArray[$i]["staff_code"]?>' "type="button" title="스테프관리페이지로 이동">리뷰작성</button></td>
+                </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
     </div>
