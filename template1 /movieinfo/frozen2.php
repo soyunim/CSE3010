@@ -154,6 +154,8 @@
         }
       ?>
       <br>
+      <hr>
+      <h2>Review</h2>
       <table>
           <caption>다른고객들이 작성한 리뷰</caption>
           <thead>
@@ -182,7 +184,7 @@
               ?>
           </tbody>
       </table>
-      <h2>Review</h2>
+      
 
       <br>
       <form action=reviewPro.php method=post>
