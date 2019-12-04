@@ -19,7 +19,9 @@
 
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
-
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="reserve/reserveCancel.js"></script>
   <?php
 
       require_once("./lib/MYDB.php");
@@ -164,6 +166,7 @@
               <th scope="col">예매 시간</th>
               <th scope="col">상영관/좌석/인원수</th>
               <th scope="col">리뷰 작성</th>
+              <th scope="col">예매 취소</th>
             </tr>
             </thead>
             <tbody>
@@ -174,9 +177,10 @@
                     <td data-label="branch_name"><?=$yourArray[$i]["branch_name"]?></td>
                     <td data-label="title"><?=$yourArray[$i]["title"]?></td>
                     <td data-label="movie_date"><?=$yourArray[$i]["movie_date"]?></td>
-                    <td data-label="movie_time"><?=$yourArray[$i]["movie_time"]?></td>
+                    <td data-label="movie_time"><?=$yourArray[$i]["movie_start_time"]?></td>
                     <td data-label="seat"><?=$yourArray[$i]["seat"]?></td>
-                    <td data-lable ="review"><button id="go_review_page" onclick="location.href= 'staffmod.php?staff_code=<?=$yourArray[$i]["staff_code"]?>' "type="button" title="스테프관리페이지로 이동">리뷰작성</button></td>
+                    <td data-label ="review"><button id="go_review_page" onclick="location.href= 'staffmod.php?staff_code=<?=$yourArray[$i]["staff_code"]?>' "type="button" title="스테프관리페이지로 이동">리뷰작성</button></td>
+                    <td data-label ="cancel"><button id="reserve_cancel" onclick='cancel(<?=$yourArray[$i]["reserve_code"]?>)' type="button" title="예매 취소">예매취소</button></td>
                 </tr>
                 <?php
                 }
@@ -197,8 +201,7 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 
