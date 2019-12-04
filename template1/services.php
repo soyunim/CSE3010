@@ -595,7 +595,7 @@ session_start();
                                 $('.txtSubTotal').text(0);
                                 $(".seatsAmount").text(0);
                                 $('.seatSelected').removeClass('seatSelected');
-                                $('#seatsList li').remove();
+                                $('#seatsList').remove();
                             }
                         );
 
@@ -676,7 +676,6 @@ session_start();
                                                 alert("실패!");
                                             } else {
                                                 alert("결제가 완료되었습니다.");
-                                                // location.href = "movieinfo.php";
                                             }
                                         },
                                         error: function(jqXHR, textStatus, errorThrown){
