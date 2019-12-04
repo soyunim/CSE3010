@@ -103,11 +103,7 @@
 }
 
 
-li {
-    width : 102px;
-    list-style-type: none;
-    margin-left : 25%;
-    margin-right : 25%;
+p {
     text-align: center;
     margin-bottom : 10px;
 }
