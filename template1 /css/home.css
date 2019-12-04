@@ -1,0 +1,127 @@
+.moviebig{
+    text-shadow:2px 2px 2px #212529;
+}
+
+.mande{
+    margin-top:50px;
+    padding-top:50px;
+    padding-bottom:50px;
+    text-align: center;
+}
+.info_movie{
+    padding-bottom:50px;
+}
+.card-body{
+    width:100%;
+    height:360px;
+    border: 2px solid #212529;
+    border-bottom:none!important;
+    padding:0;
+}
+.whatmovie{
+    visibility: hidden;
+    align-items: center;
+    justify-content:center;
+    display:flex;
+}
+.card-body:hover .whatmovie{
+    height:100%;
+    background: rgba(3, 1, 27, 0.664);
+    visibility: visible;
+    color:white;
+}
+.whatmovie button{
+    background-color: rgb(206, 206, 206);
+    opacity:0.9;
+    margin:5px;
+    width:80px;
+    height:80px;
+}
+.whatmovie button:hover{
+    background-color:#212529;
+}
+
+
+.card-header{
+    height:48%;
+    color:black;
+    background-color: white;
+    border-bottom:none;
+}
+.card-header a{
+    color:black;
+    text-decoration: none;
+}
+.card-footer{
+    height:100px;
+    background-color: white;
+    padding:0;
+    padding-bottom:5px;
+    border: 1px solid #212529;
+}
+.card-footer .btn{
+    margin-right:2%;
+    margin-left:2%;
+    width:40%;
+    height:50%;
+    font-size:13pt;
+    color:white;
+    background-color:#212529;
+}
+.btn:hover{
+    background-color: white;
+    color:black;
+    border: 1px solid #212529;
+    height:50%;
+    width:40%;
+}
+
+h4{
+    padding:10px;
+    margin-top:0;
+    margin-bottom:0;
+    vertical-align: middle; 
+}
+
+.event{
+    margin-top:50px;
+    margin-bottom:100px;
+    padding:0;
+}
+.eventbox{
+    margin-top:20px;
+    display:flex;
+    justify-content: space-between;
+    height:600px;
+}
+#event1{
+    width:70%;
+    margin-right:10px;
+}
+.top1{
+    width:100%;
+    height:50%;
+    cursor: pointer;
+}
+.bottom{
+    height:50%;
+    display:flex;
+    justify-items: center;
+}
+.bottom1{
+    width:50%;
+    height:100%;
+    cursor: pointer;
+}
+.bottom2{
+    width:50%;
+    height:100%;
+    cursor: pointer;
+}
+#event2{
+    width:30%;
+    height:100%;
+    cursor: pointer;
+}
+
+

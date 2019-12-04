@@ -303,6 +303,8 @@ session_start();
                                     type : 'POST',
                                     data : {date:date},
                                     success : function(data){
+                                        document.getElementById('test2').innerHTML = "";
+                                        document.getElementById('test3').innerHTML = "";
                                         document.getElementById('test').innerHTML = data;
                                     },
                                     error: function(jqXHR, textStatus, errorThrown){
@@ -343,6 +345,7 @@ session_start();
                                         type : 'POST',
                                         data : {date:date,name:name},
                                         success : function(data){
+                                            document.getElementById('test3').innerHTML = "";
                                             document.getElementById('test2').innerHTML = data;
                                         },
                                         error: function(jqXHR, textStatus, errorThrown){
@@ -595,7 +598,7 @@ session_start();
                                 $('.txtSubTotal').text(0);
                                 $(".seatsAmount").text(0);
                                 $('.seatSelected').removeClass('seatSelected');
-                                $('#seatsList').remove();
+                                $('#seatsList p').remove();
                             }
                         );
 
