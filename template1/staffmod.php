@@ -139,15 +139,15 @@
                        <ul>
                            <li><?=$row["staff_code"]?> </li>
                            <li><?=$row["staff_name"]?> </li>
-                           <li><input type = "text" name = "branch" value= "<?=$row["branch"]?>" required></li>
+                           <li><input type = "text" name = "branch" value= "<?=$row["branch_name"]?>" required></li>
                            <li><input type = "text" name = "staff_rank" value= "<?=$row["staff_rank"]?>" required></li>
                            <li><input type = "text" name = "salary" value= "<?=$row["salary"]?>" required></li>
                            <li><input type = "text" name = "staff_phone" value= "<?=$row["staff_phone"]?>" required></li>
                            <li id="must">* 는 필수 입력항목입니다.^^</li>
                        </ul>
                    </div>
-                   <?php}
-                    }?>
+                   
+                
                    <div class="clear"></div>
 
                </div>
