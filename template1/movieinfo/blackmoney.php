@@ -27,11 +27,9 @@
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-<<<<<<< HEAD
-        <a class="navbar-brand" href="index.php"><!---영화관이름 -->국민영화관</a>
-=======
+
         <a class="navbar-brand" href="../index.php"><!---영화관이름 -->국민영화관</a>
->>>>>>> da92d9ad785d6ef7b6d16ebe33b3e65ce7bd81d3
+
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
