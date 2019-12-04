@@ -110,7 +110,7 @@
                   <tr>
                       <td data-label="staff_code"><?=$yourArray[$i]["staff_code"]?></td>
                       <td data-label="staff_rank"><?=$yourArray[$i]["staff_rank"]?></td>
-                      <td data-label="branch"><?=$yourArray[$i]["branch"]?></td>
+                      <td data-label="branch"><?=$yourArray[$i]["branch_name"]?></td>
                       <td data-label="staff_name"><?=$yourArray[$i]["staff_name"]?></td>
                       <td data-label="sarary"><?=$yourArray[$i]["salary"]?></td>
                       <td data-label="staff_phone"><?=$yourArray[$i]["staff_phone"]?></td>
