@@ -46,7 +46,7 @@
         $_SESSION["userpoint"]=$row["point"];
         $_SESSION["usercoupon"]=$row["coupon"];
         $_SESSION["userhistory"]=$row["history"];
-        header("Location:http://localhost:8888/template1/index.php");
+        header("Location:../index.php");
         exit;
     }
 ?>

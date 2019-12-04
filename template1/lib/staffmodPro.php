@@ -13,7 +13,7 @@ $pdo = db_connect();
 
         $pdo->beginTransaction();
 
-        $sql = "update movie_theater.staff set branch=?,staff_rank=?,salary=?,staff_phone=? where staff_code =?";
+        $sql = "update movie_theater.staff set branch_name=?,staff_rank=?,salary=?,staff_phone=? where staff_code =?";
 
         $stmh = $pdo->prepare($sql);
         $stmh->bindValue(1, $branch, PDO::PARAM_STR);
@@ -24,7 +24,7 @@ $pdo = db_connect();
         $stmh->execute();
         $pdo->commit();
 
-        header("Location:http://localhost:8888/template1/index.php");
+        header("Location:../staff.php");
 
     } catch (PDOException $Exception) {
 

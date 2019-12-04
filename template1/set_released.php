@@ -28,63 +28,44 @@
 
         <!-- Navigation -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">국민영화관</a>
-                <!---영화관이름 -->
-                <button
-                    class="navbar-toggler navbar-toggler-right"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <!---메뉴바---->
-                            <?php include "./lib/login_success.php" ?>
-                        </li>
-                        <li class="nav-item">
-                            <!---메뉴바---->
-                            <?php include "./lib/top_login1.php" ?>
-                            <!--로그인 화면-->
-                        </li>
-                        <li class="nav-item">
-                            <?php include "./lib/top_signup.php" ?></a>
-                        <!--회원가입화면-->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services.php">예매</a>
-                        <!--영화예매페이지-->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="movieinfo.php">영화</a>
-                        <!--영화정보페이지-->
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a
-                            class="nav-link dropdown-toggle"
-                            href="#"
-                            id="navbarDropdownPortfolio"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false">
-                            관리자 메뉴
-                        </a>
-                        <div
-                            class="dropdown-menu dropdown-menu-right"
-                            aria-labelledby="navbarDropdownPortfolio">
-                            <a class="dropdown-item" href="staffmanage.html">직원 관리</a>
-                            <a class="dropdown-item" href="salesmanage.html">매출 관리</a>
-                        </div>
-                    </li>
-                </ul>
+          <div class="container">
+            <a class="navbar-brand" href="index.php"><!---영화관이름 -->국민영화관</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"> <!---메뉴바---->
+                      <?php include "./lib/login_success.php" ?>
+                  </li>
+                  <li class="nav-item"> <!---메뉴바---->
+                      <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
+                  </li>
+                  <li class="nav-item">
+                      <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="mypage.php">MYPAGE</a> <!--마이페이지-->
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="services.php">예매</a> <!--영화예매페이지-->
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          관리자 메뉴
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                      <a class="dropdown-item" href="staff.php">직원 관리</a>
+                      <a class="dropdown-item" href="portfolio-2-col.html">매출 관리</a>
+                      </div>
+                </li>
+              </ul>
             </div>
-        </div>
-    </nav>
+          </div>
+        </nav>
 
     <!-- Page Content -->
     <div class="container">
@@ -97,9 +78,9 @@
         <?php
     $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
     $select = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=8";
-    $result = mysqli_query($conn, $select); 
+    $result = mysqli_query($conn, $select);
     $row = mysqli_fetch_array($result);
-    
+
     ?>
 
         <!-- Content Row -->
@@ -134,10 +115,10 @@
                         </div>
                     </li>
 
-                    <?php 
+                    <?php
             $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
             $select1 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=9";
-            $result1 = mysqli_query($conn, $select1); 
+            $result1 = mysqli_query($conn, $select1);
             $row1 = mysqli_fetch_array($result1);
             ?>
                     <li>
@@ -162,10 +143,10 @@
                         </div>
                     </li>
 
-                    <?php 
+                    <?php
             $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
             $select2 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=10";
-            $result2 = mysqli_query($conn, $select2); 
+            $result2 = mysqli_query($conn, $select2);
             $row2 = mysqli_fetch_array($result2);
             ?>
 
@@ -190,10 +171,10 @@
                             </div>
                         </div>
                     </li>
-                    <?php 
+                    <?php
             $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
             $select3 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=11";
-            $result3 = mysqli_query($conn, $select3); 
+            $result3 = mysqli_query($conn, $select3);
             $row3 = mysqli_fetch_array($result3);
             ?>
                     <li>
@@ -218,10 +199,10 @@
                 </ol>
 
                 <ol class="movielist">
-                    <?php 
+                    <?php
             $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
             $select4 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=12";
-            $result4 = mysqli_query($conn, $select4); 
+            $result4 = mysqli_query($conn, $select4);
             $row4 = mysqli_fetch_array($result4);
             ?>
                     <li>
@@ -243,10 +224,10 @@
                             </div>
                         </div>
                     </li>
-                    <?php 
+                    <?php
             $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
             $select5 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=13";
-            $result5 = mysqli_query($conn, $select5); 
+            $result5 = mysqli_query($conn, $select5);
             $row5 = mysqli_fetch_array($result5);
             ?>
                     <li>
@@ -269,10 +250,10 @@
                             </div>
                         </div>
                     </li>
-                    <?php 
+                    <?php
                         $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
                         $select6 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=14";
-                        $result6 = mysqli_query($conn, $select6); 
+                        $result6 = mysqli_query($conn, $select6);
                         $row6 = mysqli_fetch_array($result6);
                     ?>
                     <li>
@@ -296,10 +277,10 @@
                             </div>
                         </div>
                     </li>
-                    <?php 
+                    <?php
             $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
             $select7 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=15";
-            $result7 = mysqli_query($conn, $select7); 
+            $result7 = mysqli_query($conn, $select7);
             $row7 = mysqli_fetch_array($result7);
             ?>
                     <li>

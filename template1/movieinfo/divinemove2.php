@@ -20,6 +20,7 @@
   <link href="../css/modern-business.css" rel="stylesheet">
   <link href = "../css/movieinfo.css" rel="stylesheet">
   <link href="../css/moviepage.css" rel="stylesheet">
+    <link href="../css/review.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,11 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-<<<<<<< HEAD
-        <a class="navbar-brand" href="index.php"><!---영화관이름 -->국민영화관</a>
-=======
         <a class="navbar-brand" href="../index.php"><!---영화관이름 -->국민영화관</a>
->>>>>>> da92d9ad785d6ef7b6d16ebe33b3e65ce7bd81d3
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -68,11 +65,26 @@
         </div>
       </div>
     </nav>
-    <?php 
+    <?php
         $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
         $select = "SELECT * FROM movie_theater.movies WHERE m_idx=3";
-        $result = mysqli_query($conn, $select); 
+        $result = mysqli_query($conn, $select);
         $row = mysqli_fetch_array($result);
+        $_SESSION["title"] = $row[1];
+        $a = $_SESSION["title"];
+
+        $sql = "SELECT * FROM movie_theater.review WHERE title = '$a'";
+        $result1 = mysqli_query($conn, $sql);
+        $yourArray = array(); // make a new array to hold all your data
+
+
+        $index = 0;
+        while($row1 = mysqli_fetch_array($result1)){
+
+            $yourArray[$index] = $row1;
+            $index++;
+        }
+
     ?>
 
   <!-- Page Content -->
@@ -87,7 +99,7 @@
     <div class = "box-image">
     <img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82463/82463_185.jpg" alt="신의 한 수">
                 </div>
-                
+
                 <br>
 
                 <div class = "box-content">
@@ -104,7 +116,7 @@
                     <div>
                     <br>
                     <div class = "m_content">
-                        
+
                         <span><strong>줄거리</strong> <br> <?php echo $row[5]; ?> </span>
                     </div>
 
@@ -112,6 +124,89 @@
 
 
     <!-- Content Row -->
+    <div class="reviewbox">
+      <?php
+        // define variables and set to empty values
+        $score = $comment ="";
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+          if (empty($_POST["comment"])) {
+            $comment = "";
+          }
+          else {
+            $comment = test_input($_POST["comment"]);
+          }
+
+          if (empty($_POST["score"])) {
+            $scoreErr = "score is required";
+          }
+          else {
+            $score = test_input($_POST["score"]);
+          }
+        }
+
+        function test_input($data) {
+          $data = trim($data);
+          $data = stripslashes($data);
+          $data = htmlspecialchars($data);
+          return $data;
+        }
+      ?>
+      <br>
+      <hr>
+      <h2>Review</h2>
+      <table>
+          <caption>다른고객들이 작성한 리뷰</caption>
+          <thead>
+          <tr>
+            <th scope="col">제목</th>
+            <th scope="col">아이디</th>
+            <th scope="col">평점</th>
+            <th scope="col">리뷰작성시간</th>
+            <th scope="col">리뷰내용</th>
+          </tr>
+          </thead>
+          <tbody>
+              <?php
+              for($i=0;$i<count($yourArray);$i++){
+              ?>
+              <tr>
+                  <td data-label="title"><?=$yourArray[$i]["title"]?></td>
+                  <td data-label="id"><?=$yourArray[$i]["id"]?></td>
+                  <td data-label="grade"><?=$yourArray[$i]["grade"]?></td>
+                  <td data-label="time"><?=$yourArray[$i]["review_time"]?></td>
+                  <td data-label="review_contents"><?=$yourArray[$i]["review_contents"]?></td>
+
+              </tr>
+              <?php
+              }
+              ?>
+          </tbody>
+      </table>
+  
+
+      <br>
+      <form action=reviewPro.php method=post>
+        <div class="review">
+          <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <input type="radio" name="score" <?php if (isset($score) && $score=="1") echo "checked";?> value="1점">1
+            <input type="radio" name="score" <?php if (isset($score) && $score=="2") echo "checked";?> value="2점">2
+            <input type="radio" name="score" <?php if (isset($score) && $score=="3") echo "checked";?> value="3점">3
+            <input type="radio" name="score" <?php if (isset($score) && $score=="4") echo "checked";?> value="4점">4
+            <input type="radio" name="score" <?php if (isset($score) && $score=="5") echo "checked";?> value="5점">5
+            <br><br>
+            <div>
+              <input type="text" name="comment" id="comment">
+              <input type="submit" name="submit" value="Submit">
+            </div>
+
+          </form>
+          </div>
+      </form>
+      <br>
+      <hr>
+    </div>
     <div class="row">
 
     <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
@@ -139,7 +234,7 @@
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  
+
 </body>
 
 </html>

@@ -1,12 +1,7 @@
-
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -15,35 +10,14 @@
   <title>국민영화관</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/staff.css" rel="stylesheet">
-
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/review.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="css/modern-business.css" rel="stylesheet">
 
 </head>
-<?php
-    $id = $_REQUEST["id"];
 
-    require_once("./lib/MYDB.php");
-    $pdo = db_connect();
-
-
-    $sql = "select * from movie_theater.staff";
-    $stmh = $pdo->prepare($sql);
-    $stmh->execute();
-    $yourArray = array();
-    $i=1;
-    $yourArray[$i] = $row;
-    while($row=$stmh->fetch(PDO::FETCH_ASSOC)){
-
-        $yourArray[$i] = $row;
-        $i++;
-    }
-
-
-?>
 <body>
-
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
@@ -85,49 +59,62 @@
       </div>
     </nav>
 
+  <div class="reviewbox">
+    <?php
+      // define variables and set to empty values
+      $score = $comment ="";
 
-  <!-- Page Content -->
-  <div class="container">
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-      <div class="ing_list">
-          <table>
-              <caption>직원목록</caption>
-              <thead>
-              <tr>
-                <th scope="col">직원 코드</th>
-                <th scope="col">직급</th>
-                <th scope="col">지점</th>
-                <th scope="col">이름</th>
-                <th scope="col">급여</th>
-                <th scope="col">전화번호</th>
-                <th scope="col">정보수정</th>
-              </tr>
-              </thead>
-              <tbody>
-                  <?php
-                  for($i=1;$i<count($yourArray)+1;$i++){
-                  ?>
-                  <tr>
-                      <td data-label="staff_code"><?=$yourArray[$i]["staff_code"]?></td>
-                      <td data-label="staff_rank"><?=$yourArray[$i]["staff_rank"]?></td>
-                      <td data-label="branch"><?=$yourArray[$i]["branch_name"]?></td>
-                      <td data-label="staff_name"><?=$yourArray[$i]["staff_name"]?></td>
-                      <td data-label="sarary"><?=$yourArray[$i]["salary"]?></td>
-                      <td data-label="staff_phone"><?=$yourArray[$i]["staff_phone"]?></td>
-                      <td data-lable ="staffmod"><button id="go_staffmod_page" onclick="location.href= 'staffmod.php?staff_code=<?=$yourArray[$i]["staff_code"]?>' "type="button" title="스테프관리페이지로 이동">정보 수정/추가</button></td>
-                  </tr>
-                  <?php
-                  }
-                  ?>
+        if (empty($_POST["comment"])) {
+          $comment = "";
+        }
+        else {
+          $comment = test_input($_POST["comment"]);
+        }
 
+        if (empty($_POST["score"])) {
+          $scoreErr = "score is required";
+        }
+        else {
+          $score = test_input($_POST["score"]);
+        }
+      }
 
+      function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
+    ?>
+    <h2>Review</h2>
+    <br><br>
+  <div class="review">
 
-              </tbody>
-          </table>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <?php echo "평정:" ?>
+      <input type="radio" name="score" <?php if (isset($score) && $score=="1") echo "checked";?> value="1점">1
+      <input type="radio" name="score" <?php if (isset($score) && $score=="2") echo "checked";?> value="2점">2
+      <input type="radio" name="score" <?php if (isset($score) && $score=="3") echo "checked";?> value="3점">3
+      <input type="radio" name="score" <?php if (isset($score) && $score=="4") echo "checked";?> value="4점">4
+      <input type="radio" name="score" <?php if (isset($score) && $score=="5") echo "checked";?> value="5점">5
+      <br><br>
+      <div>
+        <input type="text" name="comment" id="comment">
+        <input type="submit" name="submit" value="Submit">
       </div>
 
+    </form>
+    </div>
+    <br>
+    <hr>
+    <div class= "comment_">
+      <?php
+      echo $score.'   '.$_POST['comment'];
+      ?>
+    </div>
   </div>
-  <!-- /.container -->
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
