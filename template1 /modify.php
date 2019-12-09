@@ -125,7 +125,7 @@
                   ?><a class="nav-link" href="" OnClick="alert('로그인이 필요합니다.');">MYPAGE</a><?php   //<!--마이페이지-->
                   }
                   else{
-                    ?><a class="nav-link" href="../mypage.php">MYPAGE</a><?php
+                    ?><a class="nav-link" href="./mypage.php">MYPAGE</a><?php
                   }
                   ?>
             </li>
@@ -147,15 +147,15 @@
                     관리자 메뉴
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                  <?php 
-                    if($_SESSION["permit"]==1){ 
+                  <?php
+                    if($_SESSION["permit"]==1){
                     ?> <a class="dropdown-item" href="staff.php">직원 관리</a><?php
                     }
                     else if(!isset($_SESSION["userid"])||$_SESSION["permit"]==0){
                       ?><a class="dropdown-item" href="" OnClick="alert('관리자 메뉴입니다.')";>직원 관리</a><?php
                     }
                     ?>
-                  <?php  
+                  <?php
                     if($_SESSION["permit"]==1){
                     ?> <a class="dropdown-item" href="sales.php">매출 관리</a><?php
                     }
@@ -200,8 +200,9 @@
                            <li id="must">* 는 필수 입력항목입니다.^^</li>
                        </ul>
                    </div>
-                   <?php}
-                    }?>
+            <?php}
+            }
+            ?>
                    <div class="clear"></div>
 
                </div>
