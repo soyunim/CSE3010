@@ -41,7 +41,14 @@
                 <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="mypage.php">MYPAGE</a> <!--마이페이지-->
+            <?php
+                  if(!isset($_SESSION["userid"])){
+                  ?><a class="nav-link" href="" OnClick="alert('로그인이 필요합니다.');">MYPAGE</a><?php   //<!--마이페이지-->
+                  }
+                  else{
+                    ?><a class="nav-link" href="../mypage.php">MYPAGE</a><?php
+                  }
+                  ?>
             </li>
             <li class="nav-item">
             <?php
