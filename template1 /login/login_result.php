@@ -46,7 +46,8 @@
         $_SESSION["userpoint"]=$row["point"];
         $_SESSION["usercoupon"]=$row["coupon"];
         $_SESSION["userhistory"]=$row["history"];
-        header("Location:../index.php");
+        $_SESSION["permit"]=$row["permit"];
+        header("location:../index.php");
         exit;
     }
 ?>

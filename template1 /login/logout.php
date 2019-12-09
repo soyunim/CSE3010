@@ -3,5 +3,6 @@
     unset($_SESSION["userid"]);
     unset($_SESSION["name"]);
     unset($_SESSION["membership_rating"]);
-    header("Location:../index.php");
+    unset($_SESSION["permit"]);
+    header("location:../index.php");
  ?>

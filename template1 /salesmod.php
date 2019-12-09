@@ -14,6 +14,8 @@
 
          <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
          <link href="./css/modern-business.css" rel="stylesheet">
+         <link href="./css/sales.css" rel="stylesheet">
+
         <script>
 
             function check_id(){
@@ -47,15 +49,15 @@
 
     </head>
     <?php
-        $staff_code = $_REQUEST["staff_code"];
+        $branch_name = $_REQUEST["branch_name"];
 
         require_once("./lib/MYDB.php");
         $pdo = db_connect();
 
         try{
-            $sql = "select * from movie_theater.staff where staff_code = ? ";
+            $sql = "select * from movie_theater.branch where branch_name = ? ";
             $stmh = $pdo->prepare($sql);
-            $stmh->bindValue(1, $staff_code, PDO::PARAM_STR);
+            $stmh->bindValue(1, $branch_name, PDO::PARAM_STR);
             $stmh->execute();
             $count = $stmh->rowCount();
 
@@ -120,37 +122,40 @@
 
         <div class="container_contentbox">
 
-           <form name="member_form" method="post" action="./lib/staffmodPro.php?staff_code=<?=$staff_code?>">
+           <form name="member_form" method="post" action="./lib/salesmodPro.php?branch_name=<?= $branch_name ?>">
                <div id="modifyform">
-                   <h4>변경하실 회원정보를 입력하여주세요.</h4>
+                   <h4>지점 매출정보를 입력해주세요</h4>
+                   
                    <div id="check">
                        <ul>
-                           <li>* 직원 코드  : </li>
-                           <li>* 직원 이름: </li>
-                           <li>* 지점 : </li>
-                           <li>* 직급 : </li>
-                           <li>* 급여 : </li>
-                           <li>* 연락처 : </li>
-
+                           <li>* 지점명  : </li>
+                           <li>* 당일매점매출 : </li>
+                           <li>* 당일매표매출 : </li>
+                           <li>* 당일총매출 : </li>
+                           <li>* 누적매점매출 : </li>
+                           <li>* 누적매표매출 : </li>
+                           <li>* 누적총매출 : </li>
                        </ul>
                    </div>
 
                    <div id="modify">
                        <ul>
-                           <li><?=$row["staff_code"]?> </li>
-                           <li><?=$row["staff_name"]?> </li>
-                           <li><input type = "text" name = "branch" value= "<?=$row["branch_name"]?>" required></li>
-                           <li><input type = "text" name = "staff_rank" value= "<?=$row["staff_rank"]?>" required></li>
-                           <li><input type = "text" name = "salary" value= "<?=$row["salary"]?>" required></li>
-                           <li><input type = "text" name = "staff_phone" value= "<?=$row["staff_phone"]?>" required></li>
-                           <li id="must">* 는 필수 입력항목입니다.^^</li>
+                           <li><?=$row["branch_name"]?></li>
+                           <li><input type = "text" name = "con" value= "<?=$row["con"]?>" required></li>
+                           <li><input type = "text" name = "box" value= "<?=$row["box"]?>" required></li>
+                           <li><input type = "text" name = "daytotal" value= "<?=$row["daytotal"]?>" required></li>
+                           <li><input type = "text" name = "acon" value= "<?=$row["acon"]?>" required></li>
+                           <li><input type = "text" name = "abox" value= "<?=$row["abox"]?>" required></li>
+                           <li><input type = "text" name = "atotal" value= "<?=$row["atotal"]?>" required></li>
                        </ul>
                    </div>
                    
                 
-                   <div class="clear"></div>
+                   <div class="clear">
 
-               </div>
+                   </div>
+
+                </div>
 
                <div id="button"><a href="#"><img src="./img/button_save.gif"
                    onclick="check_input()"></a>&nbsp;&nbsp;

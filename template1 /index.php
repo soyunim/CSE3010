@@ -44,7 +44,14 @@
                 <a class="nav-link" href="mypage.php">MYPAGE</a> <!--마이페이지-->
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="services.php">예매</a> <!--영화예매페이지-->
+            <?php
+              if(!isset($_SESSION["userid"])){
+              ?><a class="nav-link" href="" OnClick="alert('로그인이 필요합니다.');">예매</a><?php
+              }
+              else{
+                ?><a class="nav-link" href="services.php">예매</a><?php
+              }
+              ?><!--영화예매페이지-->
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
@@ -54,8 +61,23 @@
                     관리자 메뉴
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                <a class="dropdown-item" href="staff.php">직원 관리</a>
-                <a class="dropdown-item" href="portfolio-2-col.html">매출 관리</a>
+                  <?php 
+                    if($_SESSION["permit"]==1){ 
+                    ?> <a class="dropdown-item" href="staff.php">직원 관리</a><?php
+                    }
+                    else if(!isset($_SESSION["userid"])||$_SESSION["permit"]==0){
+                      ?><a class="dropdown-item" href="" OnClick="alert('관리자 메뉴입니다.')";>직원 관리</a><?php
+                    }
+                    ?>
+                  <?php  
+                    if($_SESSION["permit"]==1){
+                    ?> <a class="dropdown-item" href="sales.php">매출 관리</a><?php
+                    }
+                    else if((!isset($_SESSION["userid"]))||$_SESSION["permit"]==0){
+                      ?><a class="dropdown-item" href="" OnClick="alert('관리자 메뉴입니다.');"> 매출 관리</a><?php
+                    }
+                    ?>
+
                 </div>
           </li>
         </ul>
@@ -122,21 +144,19 @@
             <h4 class="card-header"><a href="#">겨울왕국2</a></h4>
             <div>
               <?php
-              if(!isset($_SESSION['id'])){
-              ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="services.php" class="btn">예매하기</a><?php
+              if(!isset($_SESSION['userid'])){
+              ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="" OnClick="alert('로그인이 필요합니다.');" class="btn">예매하기</a><?php
               }
               else{
-                ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="" OnClick="alert('로그인이 필요합니다.');" class="btn">예매하기</a><?php
+                ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="services.php" class="btn">예매하기</a><?php
               }
               ?>
             </div>
           </div>
         </div>
       </div>
-      <?php 
-        $id = $_SESSION['id']
       
-      ?>
+      
       
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
@@ -150,11 +170,11 @@
             <h4 class="card-header"><a href="#">블랙머니</a></h4>
             <div>
               <?php
-              if(!isset($_SESSION['id'])){
-              ?><a href="./movieinfo/blackmoney.php" class="btn">상세정보</a><a href="services.php" class="btn">예매하기</a><?php
+              if(!isset($_SESSION['userid'])){
+              ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="" OnClick="alert('로그인이 필요합니다.');" class="btn">예매하기</a><?php
               }
               else{
-                ?><a href="./movieinfo/blackmoney.php" class="btn">상세정보</a><a href="" OnClick="alert('로그인이 필요합니다.');" class="btn">예매하기</a><?php
+                ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="services.php" class="btn">예매하기</a><?php
               }
               ?>
             </div>
@@ -174,10 +194,10 @@
             <div>
               <?php
               if(!isset($_SESSION['id'])){
-              ?><a href="./movieinfo/divinemove2.php" class="btn">상세정보</a><a href="services.php" class="btn">예매하기</a><?php
+              ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="" OnClick="alert('로그인이 필요합니다.');" class="btn">예매하기</a><?php
               }
               else{
-                ?><a href="./movieinfo/divinemove2.php" class="btn">상세정보</a><a href="" OnClick="alert('로그인이 필요합니다.');" class="btn">예매하기</a><?php
+                ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="services.php" class="btn">예매하기</a><?php
               }
               ?>
             </div>
@@ -196,11 +216,11 @@
             <h4 class="card-header"><a href="#">82년생 김지영</a></h4>
             <div>
               <?php
-              if(!isset($_SESSION['id'])){
-              ?><a href="./movieinfo/kimjiyoung.php" class="btn">상세정보</a><a href="services.php" class="btn">예매하기</a><?php
+              if(!isset($_SESSION['userid'])){
+              ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="" OnClick="alert('로그인이 필요합니다.');" class="btn">예매하기</a><?php
               }
               else{
-                ?><a href="./movieinfo/kimjiyoung.php" class="btn">상세정보</a><a href="" OnClick="alert('로그인이 필요합니다.');" class="btn">예매하기</a><?php
+                ?><a href="./movieinfo/frozen2.php" class="btn">상세정보</a><a href="services.php" class="btn">예매하기</a><?php
               }
               ?>
             </div>

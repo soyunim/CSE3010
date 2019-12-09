@@ -28,7 +28,7 @@
     $pdo = db_connect();
 
 
-    $sql = "select * from movie_theater.staff";
+    $sql = "select * from movie_theater.branch";
     $stmh = $pdo->prepare($sql);
     $stmh->execute();
     $yourArray = array();
@@ -91,16 +91,18 @@
 
       <div class="ing_list">
           <table>
-              <caption>직원목록</caption>
+              <caption>지점목록</caption>
               <thead>
               <tr>
-                <th scope="col">직원 코드</th>
-                <th scope="col">직급</th>
-                <th scope="col">지점</th>
-                <th scope="col">이름</th>
-                <th scope="col">급여</th>
-                <th scope="col">전화번호</th>
-                <th scope="col">정보수정</th>
+                <th scope="col">지점명</th>
+                <th scope="col">당일매점매출</th>
+                <th scope="col">당일매표매출</th>
+                <th scope="col">당일총매출</th>
+                <th scope="col">누적매점매출</th>
+                <th scope="col">누적매표매출</th>
+                <th scope="col">총누적매출</th>
+                <th scope="col">수정</th>
+
               </tr>
               </thead>
               <tbody>
@@ -108,13 +110,15 @@
                   for($i=1;$i<count($yourArray)+1;$i++){
                   ?>
                   <tr>
-                      <td data-label="staff_code"><?=$yourArray[$i]["staff_code"]?></td>
-                      <td data-label="staff_rank"><?=$yourArray[$i]["staff_rank"]?></td>
-                      <td data-label="branch"><?=$yourArray[$i]["branch_name"]?></td>
-                      <td data-label="staff_name"><?=$yourArray[$i]["staff_name"]?></td>
-                      <td data-label="sarary"><?=$yourArray[$i]["salary"]?></td>
-                      <td data-label="staff_phone"><?=$yourArray[$i]["staff_phone"]?></td>
-                      <td data-lable ="staffmod"><button id="go_staffmod_page" onclick="location.href= 'staffmod.php?staff_code=<?=$yourArray[$i]["staff_code"]?>' "type="button" title="스테프관리페이지로 이동">정보 수정/추가</button></td>
+                      <td data-label="branch_name"><?=$yourArray[$i]["branch_name"]?></td>
+                      <td data-label="con"><?=$yourArray[$i]["con"]?></td>
+                      <td data-label="box"><?=$yourArray[$i]["box"]?></td>
+                      <td data-label="daytotal"><?=$yourArray[$i]["daytotal"]?></td>
+                      <td data-label="acon"><?=$yourArray[$i]["acon"]?></td>
+                      <td data-label="abox"><?=$yourArray[$i]["abox"]?></td>
+                      <td data-label="atotal"><?=$yourArray[$i]["atotal"]?></td>
+                      
+                      <td data-lable ="salesmod"><button id="go_salesmod_page" onclick="location.href='salesmod.php?branch_name=<?=$yourArray[$i]['branch_name']?>'"  type="button" title="매출관리페이지로 이동">수정/추가</button></td>
                   </tr>
                   <?php
                   }
