@@ -16,6 +16,49 @@
     display : none;
 }
 
+/* 추가한것!!!!!! */
+
+#test2_model_overlay {
+    opacity: 0;
+    display:none;
+}
+
+#js2-model-holder{
+    display : none;
+}
+#js2-model {
+    background: #fff;
+    border-radius: 0.4375rem;
+    width: 100%;
+    height: 100%;
+    color: #222;
+    text-align: center;
+    letter-spacing: 0.0625rem;
+    overflow: hidden;
+    display: none;
+}
+
+.select_way li {
+    text-align: center;
+    list-style-type : none;
+}
+
+.in2 {
+    border : 1px solid black;
+    margin : 10px;
+}
+
+.in2 p {
+    border-bottom : 1px solid black;
+    width : 90%;
+}
+
+p.stack {
+    text-align:center;
+    width:87%;
+}
+
+/* 추가한것 !!!!!! */
 /* .mb-4 {
     margin-botton : 0.1rem !important;
 } */

@@ -5,7 +5,6 @@
 function cancel(reserve_code){
     if(confirm("예매를 취소하시겠습니까?")){
         var code = reserve_code;
-        console.log(code);
         $.ajax({
             url : 'reserve/reserveCancel.php',
             type : 'POST',

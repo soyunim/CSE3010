@@ -58,6 +58,7 @@ session_start();
     <!-- <script src="reserve/seat.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="reserve/services.js"></script>
 </head>
 
 <body>
@@ -292,29 +293,8 @@ session_start();
                 <div class="card h-100">
                     <h4 class="card-header">극장</h4>
                     <div class="card-body">
-                            <!-- <div id="show">
-                                출력해주세요..
-                            </div> -->
-                            <script>
-                            function theater(clickeddate){
-                                var date = clickeddate.getAttribute('id');
-                                $.ajax({
-                                    url : 'reserve/theater.php',
-                                    type : 'POST',
-                                    data : {date:date},
-                                    success : function(data){
-                                        document.getElementById('test2').innerHTML = "";
-                                        document.getElementById('test3').innerHTML = "";
-                                        document.getElementById('test').innerHTML = data;
-                                    },
-                                    error: function(jqXHR, textStatus, errorThrown){
-                        				alert("arjax error : " + textStatus + "\n" + errorThrown);
-                        			}
-                                });
-                            }
-                            </script>
-                            <div id="test">
-                            </div>
+                        <!-- theater함수 -->
+                        <div id="test"></div>
                     </div>
                 </div>
             </div>
@@ -322,40 +302,8 @@ session_start();
                 <div class="card h-100">
                     <h4 class="card-header">영화</h4>
                     <div class="card-body">
-                        <script>
-                            function movies(name,th,length){
-                                    var cgroup = [];
-                                    for(let i = 0; i < length; i++){
-                                        cgroup[i] = document.getElementById(`theater${i}`);
-                                    }
-                                    for(let i = 0; i < length; i++){
-                                        if(cgroup[i].classList.contains('li_active')){
-                                            cgroup[i].classList.remove('li_active');
-                                        }
-                                    }
-                                    cgroup[th].className = 'li_active';
-                                    for(let i = 0; i < tabnum; i++){
-                                        if(tdGroup[i].classList.contains('active')){ //tdGroup에 active한 classList가 있다면 remove한다.
-                                            var date = tdGroup[i].getAttribute('id');
-                                        }
-                                    }
-                                    var name = name; // ttid는 극장의 고유번호값. 그래서 찾으면됨
-                                    $.ajax({
-                                        url : 'reserve/movies.php',
-                                        type : 'POST',
-                                        data : {date:date,name:name},
-                                        success : function(data){
-                                            document.getElementById('test3').innerHTML = "";
-                                            document.getElementById('test2').innerHTML = data;
-                                        },
-                                        error: function(jqXHR, textStatus, errorThrown){
-                                            alert("arjax error : " + textStatus + "\n" + errorThrown);
-                                        }
-                                    });
-                                }
-                        </script>
-                        <p id="test2">
-                        </p>
+                        <!-- movies 함수 -->
+                        <div id="test2"></div>
                     </div>
                 </div>
             </div>
@@ -363,40 +311,8 @@ session_start();
                 <div class="card h-100">
                     <h4 class="card-header">시간</h4>
                     <div class="card-body">
-                        <script>
-                            function time(title,name,th,length){
-                                var cgroup = [];
-                                for(let i = 0; i < length; i++){
-                                    cgroup[i] = document.getElementById(`movie${i}`);
-                                }
-                                for(let i = 0; i < length; i++){
-                                    if(cgroup[i].classList.contains('li_active')){
-                                        cgroup[i].classList.remove('li_active');
-                                    }
-                                }
-                                cgroup[th].className = 'li_active';
-                                for(let i = 0; i < tabnum; i++){
-                                    if(tdGroup[i].classList.contains('active')){ //tdGroup에 active한 classList가 있다면 remove한다.
-                                        var date = tdGroup[i].getAttribute('id');
-                                    }
-                                }
-                                var name = name; // id는 극장의 고유번호값. 그래서 찾으면됨
-                                var title = title;
-                                $.ajax({
-                                    url : 'reserve/time.php',
-                                    type : 'POST',
-                                    data : {date:date,name:name, title:title},
-                                    success : function(data){
-                                        document.getElementById('test3').innerHTML = data;
-                                    },
-                                    error: function(jqXHR, textStatus, errorThrown){
-                                        alert("arjax error : " + textStatus + "\n" + errorThrown);
-                                    }
-                                });
-                            }
-                        </script>
-                        <p id="test3">
-                        </p>
+                        <!-- time함수 -->
+                        <p id="test3"></p>
                     </div>
                 </div>
             </div>
@@ -416,77 +332,9 @@ session_start();
                 </div>
                     <div class="seatSelection col-lg-12">
                         <div class="seatsChart col-lg-offset-6">
+                            <div id="test4" class="seats">
+                            </div>
 
-                            <div class="seats">
-                            <div class="seatRow">
-                                <div class="seatRowNumber">
-                                    A
-                                </div>
-                                <div id="A_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">1</div>
-                                <div id="A_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">2</div>
-                                <div id="A_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">3</div>
-                                <div id="A_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">4</div>
-                                <div id="A_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">5</div>
-                                <div id="A_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">6</div>
-                                <div id="A_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
-                                <div id="A_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">8</div>
-
-                            </div>
-                            <div class="seatRow">
-                                <div class="seatRowNumber">
-                                    B
-                                </div>
-                                <div id="B_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">1</div>
-                                <div id="B_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">2</div>
-                                <div id="B_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">3</div>
-                                <div id="B_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">4</div>
-                                <div id="B_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">5</div>
-                                <div id="B_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">6</div>
-                                <div id="B_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
-                                <div id="B_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">8</div>
-
-                            </div>
-                            <div class="seatRow">
-                                <div class="seatRowNumber">
-                                    C
-                                </div>
-                                <div id="C_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">1</div>
-                                <div id="C_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">2</div>
-                                <div id="C_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">3</div>
-                                <div id="C_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">4</div>
-                                <div id="C_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">5</div>
-                                <div id="C_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">6</div>
-                                <div id="C_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
-                                <div id="C_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">8</div>
-
-                            </div>
-                            <div class="seatRow">
-                                <div class="seatRowNumber">
-                                    D
-                                </div>
-                                <div id="D_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">1</div>
-                                <div id="D_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">2</div>
-                                <div id="D_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">3</div>
-                                <div id="D_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">4</div>
-                                <div id="D_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">5</div>
-                                <div id="D_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable ">6</div>
-                                <div id="D_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
-                                <div id="D_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">8</div>
-                            </div>
-                            <div class="seatRow">
-                                <div class="seatRowNumber">
-                                    E
-                                </div>
-                                <div id="E_1" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">1</div>
-                                <div id="E_2" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">2</div>
-                                <div id="E_3" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">3</div>
-                                <div id="E_4" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable">4</div>
-                                <div id="E_5" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">5</div>
-                                <div id="E_6" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber seatUnavailable ">6</div>
-                                <div id="E_7" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">7</div>
-                                <div id="E_8" name="seat" role="checkbox" value="5000" aria-checked="false" focusable="true" tabindex="-1" class="seatNumber">8</div>
-                            </div>
-                        </div>
                         <div class="seatsReceipt" style="overflow:scroll;">
                             <p class="print_seat"><strong>선택 좌석 : <span class="seatsAmount">0</span></strong></p><button id="btnClear" class="btn btn_clear">Clear</button>
                             <ul id="seatsList" class="nav nav-stacked"></ul>
@@ -501,200 +349,63 @@ session_start();
                             </div>
                         </div>
 
-                        <script>
-                        $(".seatNumber").click(
-                            // thisId = $(this).attr('id');
-                            // id = thisId.split("_");
-                            function () {
-                                if (!$(this).hasClass("seatUnavailable")){
-                                    // If selected, unselect it
-                                    if ($(this).hasClass("seatSelected")) {
-                                        var thisId = $(this).attr('id');
-                                        var price = $('#seatsList .' + thisId).val();
-                                        $(this).removeClass("seatSelected");
-                                        $('#seatsList .' + thisId).remove();
-                                        // Calling functions to update checkout total and seat counter.
-                                        removeFromCheckout(price);
-                                        refreshCounter();
-                                    }
-                                    else {
-                                        // else, select it
-                                        // getting values from Seat
-                                        var thisId = $(this).attr('id');
-                                        var id = thisId.split("_");
-                                        var price = $(this).attr('value');
-
-
-                                        var freeSeats = parseInt($('.freeSeats').first().text());
-                                        var selectedSeats = parseInt($(".seatSelected").length);
-
-                                        // If you have free seats available the price of this one will be 0.
-                                        if (selectedSeats < freeSeats) {
-                                            price = 0;
-                                        }
-
-                                        // Adding this seat to the list
-                                        var seatDetails1 = "좌석 : " + id[0] + id[1];
-                                        $("#seatsList").append('<p value=' + price + ' class=' + thisId + '>' + seatDetails1 + '<br></p>');
-                                        $(this).addClass("seatSelected");
-
-                                        addToCheckout(price);
-                                        refreshCounter();
-                                    }
-                                }
-                            }
-                        );
-                        // Clicking any of the dynamically-generated X buttons on the list
-                        $(document).on('click', ".removeSeat", function () {
-                            // Getting the Id of the Seat
-                            var id = $(this).attr('id').split(":");
-                            var price = $(this).attr('value')
-                            $('#seatsList .' + id[1]).remove();
-                            $("#" + id[1] + ".seatNumber").removeClass("seatSelected");
-                            removeFromCheckout(price);
-                            refreshCounter();
-                          }
-                      );
-                        // Show tooltip on hover.
-                        $(".seatNumber").hover(
-                            function () {
-                                if (!$(this).hasClass("seatUnavailable")) {
-                                    var id = $(this).attr('id');
-                                    var id = id.split("_");
-                                    var price = $(this).attr('value');
-                                    var tooltip = "Row: " + id[0] + " Seat:" + id[1] + " Price:CA$:" + price;
-
-                                    $(this).prop('title', tooltip);
-                                } else
-                                {
-                                    $(this).prop('title', "Seat unavailable");
-                                }
-                            }
-                            );
-                        // Function to refresh seats counter
-                        function refreshCounter() {
-                            $(".seatsAmount").text($(".seatSelected").length);
-                        }
-                        // Add seat to checkout
-                        function addToCheckout(thisSeat) {
-                            var seatPrice = parseInt(thisSeat);
-                            var num = parseInt($('.txtSubTotal').text());
-                            num += seatPrice;
-                            num = num.toString();
-                            $('.txtSubTotal').text(num);
-                        }
-                        // Remove seat from checkout
-                        function removeFromCheckout(thisSeat) {
-                            var seatPrice = parseInt(thisSeat);
-                            var num = parseInt($('.txtSubTotal').text());
-                            num -= seatPrice;
-                            num = num.toString();
-                            $('.txtSubTotal').text(num);
-                        }
-
-                        // Clear seats.
-                        $("#btnClear").click(
-                            function () {
-                                $('.txtSubTotal').text(0);
-                                $(".seatsAmount").text(0);
-                                $('.seatSelected').removeClass('seatSelected');
-                                $('#seatsList p').remove();
-                            }
-                        );
-
-                        function seat(title,time,name,th,length){
-                            var cgroup = [];
-                            for(let i = 0; i < length; i++){
-                                cgroup[i] = document.getElementById(`time${i}`);
-                            }
-                            for(let i = 0; i < length; i++){
-                                if(cgroup[i].classList.contains('li_active')){
-                                    cgroup[i].classList.remove('li_active');
-                                }
-                            }
-                            cgroup[th].className = 'li_active';
-
-                            for(let i = 0; i < tabnum; i++){
-                                if(tdGroup[i].classList.contains('active')){ //tdGroup에 active한 classList가 있다면 remove한다.
-                                    var date = tdGroup[i].getAttribute('id');
-                                }
-                            }
-                            var name = name;
-                            var title = title;
-                            var time = time;
-
-                            var user_id = '<?=$_SESSION["userid"]?>'; //user_id값을 받는다.
-
-                            var choice_button = document.getElementById("choice_seat");
-                            choice_button.style.backgroundColor = "rgb(213, 63, 63)";
-                            choice_button.style.color = "rgb(255, 255, 255)";
-
-                            $("#choice_seat").click(
-                                function () {
-                                    if(!user_id){
-                                        alert("로그인 후 이용해주시길 바랍니다.");
-                                        window.location.href='login/login_form.php';
-                                    }
-                                    else {
-                                        var test_model = document.getElementById("test_model_overlay");
-                                        test_model.style.opacity = 1;
-                                        test_model.style.display = 'block';
-                                        var model = document.getElementById("js-model");
-                                        model.style.display = "block";
-                                        var js_model = document.getElementById("js-model-holder");
-                                        js_model.style.display = "block";
-                                    }
-                                }
-                            )
-                            $("#close").click(
-                                function () {
-                                    var test_model = document.getElementById("test_model_overlay");
-                                    test_model.style.opacity = 0;
-                                    test_model.style.display = 'none';
-                                    var model = document.getElementById("js-model");
-                                    model.style.display = 'none';
-                                    var js_model = document.getElementById("js-model-holder");
-                                    js_model.style.display = 'none';
-                                }
-                            )
-                            $("#btnCheckout").click(
-                                function () {
-                                    var idlist = new Array;
-                                    $("div[class='seatNumber seatSelected']").each(function(i){
-                                        var sel_seat = $(this).attr('id');
-
-                                        // unavailable 좌석
-                                        $(this).removeClass("seatSelected");
-                                        $(this).addClass("seatUnavailable");
-
-                                        idlist.push(sel_seat);
-
-                                    });
-                                    $.ajax({
-                                        url : 'reserve/reserve.php',
-                                        type : 'POST',
-                                        data : {date:date,name:name, title:title, time:time, seat:idlist, id:user_id},
-                                        success : function(data){
-                                            if(data == 0){
-                                                alert("실패!");
-                                            } else {
-                                                alert("결제가 완료되었습니다.");
-                                            }
-                                        },
-                                        error: function(jqXHR, textStatus, errorThrown){
-                                            alert("arjax error : " + textStatus + "\n" + errorThrown);
-                                        }
-                                    });
-                                }
-                            );
-                        }
-
-
-                        </script>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div id="test2_model_overlay" class="model_overlay">
+        </div>
+
+        <div id="js2-model-holder" class="model-holder">
+            <div id="js2-model" class="model">
+                <div class="button-close">
+                    <button id="close2" class="close-x" type="button" name="button">X</button>
+                </div>
+                <div class="in2">
+                <p class="stack">결제 방법을 선택하여 주세요.</p>
+                <div class="select_way">
+                    <form class=inform method="post" action="index.php">
+                        <input type="radio" name="chk_info" value="card">CARD
+                        <input type="radio" name="chk_info" value="coupon">COUPON
+                      <br>
+                      <br>
+                      <p>결제 정보</p>
+                      <ul>
+                          <li id="branch_name">지점 : </li>
+                          <li id="title">제목 : </li>
+                          <li id="date">예매일자 :</li>
+                          <li id="seat">상영관/좌석 :</li>
+                          <li id="price">총 금액 :</li>
+                          <li>멤버쉽등급 : <?=$_SESSION["membership_rating"]?></li>
+                          <li>멤버쉽등급 할인률 :<?php
+                            if ($_SESSION["membership_rating"] == "Bronze") {
+                                $discount =10;
+                            }
+                            else if ($_SESSION["membership_rating"] == "Silver") {
+                                $discount = 20;
+                            }
+                            else if ($_SESSION["membership_rating"] == "Gold") {
+                                $discount = 30;
+                            }
+                            echo "$discount%";
+                          ?></li>
+                          <li id="realPrice">실 결제 금액 : </li>
+                          <div id="final">
+                            <a href="#" class="submit">결제하기</a>
+                          </div>
+
+                      </ul>
+
+
+
+                  </form>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
     </div>
     <!-- /.container -->
     <div style="clear:both;"></div>

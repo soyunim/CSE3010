@@ -7,16 +7,18 @@ $name = $_POST['name'];
 $title = $_POST['title'];
 $time = $_POST['time'];
 $seat = $_POST['seat'];
+$price = $_POST['price'];
 $seat_num = count($seat);
 $seat_val = "";
 foreach ($seat as $value) {
     $seat_val = $value.",".$seat_val;
 }
-
-$sql = "INSERT INTO reservation_info (branch_name,id,title,movie_date,movie_time,seat,number,screen) VALUES ('".$name."' ,'".$id."','".$title."','".$date."','".$time."','".$seat_val."',$seat_num,'1관')";
+// $sql = "SELECT * from reservation_info";
+// $sql = "INSERT INTO refund_info values(1,'1','1')";
+$sql = "INSERT INTO reservation_info (branch_name,id,title,movie_date,movie_time,seat,number,screen,price) VALUES ('".$name."' ,'".$id."','".$title."','".$date."','".$time."','".$seat_val."',$seat_num,'1관',$price)";
 $result = mysqli_query($dbconn, $sql);
 if($result){
-    echo 1;
+    echo "$id,$date,$name,$title,$time,$seat,$price,$seat_num,$seat_val";
 } else {
     echo 0;
 }
