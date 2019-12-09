@@ -1,4 +1,3 @@
-// <? session_start(); ?>
 function theater(clickeddate) {
     var date = clickeddate.getAttribute('id');
     $.ajax({
@@ -257,8 +256,6 @@ function seat(title, time, name, th, length) {
 
 
     $(document).on("click",".seatNumber",function(){
-        // thisId = $(this).attr('id');
-        // id = thisId.split("_");
             if (!$(this).hasClass("seatUnavailable")) {
                 // If selected, unselect it
                 if ($(this).hasClass("seatSelected")) {
@@ -273,7 +270,6 @@ function seat(title, time, name, th, length) {
                     // else, select it
                     // getting values from Seat
                     var thisId = $(this).attr('id');
-                    // var id = thisId.split("_");
                     price = $(this).attr('value');
 
 
