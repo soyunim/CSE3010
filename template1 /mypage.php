@@ -32,7 +32,7 @@
       $stmh = $pdo->prepare($sql);
       $stmh->execute();
       $yourArray = array();
-      $i=1;
+      $i=0;
       $yourArray[$i] = $row;
       while($row=$stmh->fetch(PDO::FETCH_ASSOC)){
 
@@ -200,7 +200,7 @@
             </thead>
             <tbody>
                 <?php
-                for($i=1;$i<count($yourArray)+1;$i++){
+                for($i=0;$i<count($yourArray);$i++){
                 ?>
                 <tr>
                     <td data-label="branch_name"><?=$yourArray[$i]["branch_name"]?></td>

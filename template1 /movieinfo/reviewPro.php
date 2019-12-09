@@ -25,8 +25,10 @@ $pdo = db_connect();
         $stmh->execute();
         $pdo->commit();
 
-        header("Location:../index.php");
-        
+        ?>
+        <script>history.back();</script>
+        <?php
+
 
     } catch (PDOException $Exception) {
 
