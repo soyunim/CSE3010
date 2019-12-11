@@ -8,14 +8,20 @@ $title = $_POST['title'];
 $time = $_POST['time'];
 $seat = $_POST['seat'];
 $price = $_POST['price'];
+$chk_info = $_POST['chk_info'];
 $seat_num = count($seat);
 $seat_val = implode(",",$seat);
-// $sql = "SELECT * from reservation_info";
-// $sql = "INSERT INTO refund_info values(1,'1','1')";
+
 $sql = "INSERT INTO reservation_info (branch_name,id,title,movie_date,movie_time,seat,number,screen,price) VALUES ('".$name."' ,'".$id."','".$title."','".$date."','".$time."','".$seat_val."',$seat_num,'1관',$price)";
 $result = mysqli_query($dbconn, $sql);
-$sql = "UPDATE member SET history = history +$price WHERE id = '$id'";
-$result = mysqli_query($dbconn, $sql);
+if($chk_info == "coupon" && $result) {
+    $sql = "UPDATE member SET coupon = coupon-1";
+    $result = mysqli_query($dbconn, $sql);
+}
+else {
+    $sql = "UPDATE member SET history = history +$price WHERE id = '$id'";
+    $result = mysqli_query($dbconn, $sql);
+}
 $sql = "UPDATE member SET point = point +$price/10 WHERE id = '$id'";
 $result = mysqli_query($dbconn, $sql);
 
