@@ -33,16 +33,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <!---메뉴바---->
+            <li class="nav-item this_margin"> <!---메뉴바---->
                 <?php include "./lib/login_success.php" ?>
             </li>
-            <li class="nav-item"> <!---메뉴바---->
+            <li class="nav-item this_margin"> <!---메뉴바---->
                 <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
             </li>
-            <li class="nav-item">
+            <li class="nav-item this_margin">
                 <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
             </li>
-            <li class="nav-item">
+            <li class="nav-item this_margin">
             <?php
                   if(!isset($_SESSION["userid"])){
                   ?><a class="nav-link" href="" OnClick="alert('로그인이 필요합니다.');">MYPAGE</a><?php   //<!--마이페이지-->
@@ -52,7 +52,7 @@
                   }
                   ?>
             </li>
-            <li class="nav-item">
+            <li class="nav-item this_margin">
             <?php
               if(!isset($_SESSION["userid"])){
               ?><a class="nav-link" href="" OnClick="alert('로그인이 필요합니다.');">예매</a><?php
@@ -62,10 +62,10 @@
               }
               ?><!--영화예매페이지-->
             </li>
-            <li class="nav-item">
+            <li class="nav-item this_margin">
                 <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item  this_margin dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     관리자 메뉴
                 </a>
