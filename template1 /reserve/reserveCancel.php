@@ -9,7 +9,8 @@ $sql = "DELETE FROM reservation_info where reserve_code = $reserve_code";
 $result = mysqli_query($dbconn, $sql);
 $sql = "UPDATE member SET history = history - $price WHERE id = '$id'";
 $result = mysqli_query($dbconn, $sql);
-
+$sql = "UPDATE member SET point = point -$price/10 WHERE id = '$id'";
+$result = mysqli_query($dbconn, $sql);
 
 
 session_start();
