@@ -1,7 +1,7 @@
 <?php
 $db['host'] = "localhost";
 $db['name'] = "movie_theater";
-$db['user'] = "root";
-$db['pass'] = "root";
-// $db['port'] = "8889";
+$db['user'] = "jegyun";
+$db['pass'] = "211724";
+$db['port'] = "3306";
 ?>
