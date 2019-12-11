@@ -65,46 +65,46 @@ session_start();
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.php"><!---영화관이름 -->국민영화관</a>
+      <a class="navbar-brand serv_margin" href="index.php"><!---영화관이름 -->국민영화관</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <!---메뉴바---->
+            <li class="nav-item fontupup"> <!---메뉴바---->
                 <?php include "./lib/login_success.php" ?>
             </li>
-            <li class="nav-item"> <!---메뉴바---->
-                <?php include "./lib/top_login1.php" ?> <!--로그인 화면-->
+            <li class="nav-item fontupup"> <!---메뉴바---->
+                <?php include "./lib/top_login1.php" ?><!--로그인 화면-->
             </li>
-            <li class="nav-item">
+            <li class="nav-item fontupup">
                 <?php include "./lib/top_signup.php" ?></a> <!--회원가입화면-->
             </li>
             <li class="nav-item">
             <?php
                   if(!isset($_SESSION["userid"])){
-                  ?><a class="nav-link" href="" OnClick="alert('로그인이 필요합니다.');">MYPAGE</a><?php   //<!--마이페이지-->
+                  ?><a class="nav-link fontupup" href="" OnClick="alert('로그인이 필요합니다.');">MYPAGE</a><?php   //<!--마이페이지-->
                   }
                   else{
-                    ?><a class="nav-link" href="./mypage.php">MYPAGE</a><?php
+                    ?><a class="nav-link fontupup" href="./mypage.php">MYPAGE</a><?php
                   }
                   ?>
             </li>
             <li class="nav-item">
             <?php
               if(!isset($_SESSION["userid"])){
-              ?><a class="nav-link" href="" OnClick="alert('로그인이 필요합니다.');">예매</a><?php
+              ?><a class="nav-link fontupup" href="" OnClick="alert('로그인이 필요합니다.');">예매</a><?php
               }
               else{
-                ?><a class="nav-link" href="services.php">예매</a><?php
+                ?><a class="nav-link fontupup" href="services.php">예매</a><?php
               }
               ?><!--영화예매페이지-->
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="movieinfo.php">영화</a> <!--영화정보페이지-->
+                <a class="nav-link fontupup" href="movieinfo.php">영화</a> <!--영화정보페이지-->
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle fontupup" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     관리자 메뉴
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
@@ -345,7 +345,7 @@ session_start();
                 </div>
             </div>
             <div class="choice col-lg-12">
-                <button type="button" name="button" id="choice_seat">좌석선택</button>
+                <button type="button" name="button" id="choice_seat" class="seatshit">좌석선택</button>
             </div>
         </div>
         <!-- /.row -->
@@ -436,7 +436,7 @@ session_start();
 
     </div>
     <!-- /.container -->
-    <div style="clear:both;"></div>
+    <div style="clear:both;" class="bnt_foot"></div>
     <!-- Footer -->
     <footer class="py-5 bg-dark">
         <div class="container">
