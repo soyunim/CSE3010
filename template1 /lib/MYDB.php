@@ -1,7 +1,7 @@
 <?php
 function db_connect(){  //DB연결을 함수로 정의
-    $db_user ="root";    //추가한 계정이름(사용자명)
-    $db_pass ="root";     //비밀번호
+    $db_user ="jegyun";    //추가한 계정이름(사용자명)
+    $db_pass ="211724";     //비밀번호
     $db_host ="localhost";
     $db_name ="moive_theater";
     $db_type ="mysql";

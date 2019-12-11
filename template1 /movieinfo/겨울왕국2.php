@@ -95,7 +95,7 @@
     </div>
   </nav>
     <?php
-        $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+        $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
         $select = "SELECT * FROM movie_theater.movies WHERE m_idx=1";
         $result = mysqli_query($conn, $select);
         $row = mysqli_fetch_array($result);
