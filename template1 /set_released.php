@@ -72,15 +72,15 @@
                     관리자 메뉴
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                  <?php 
-                    if($_SESSION["permit"]==1){ 
+                  <?php
+                    if($_SESSION["permit"]==1){
                     ?> <a class="dropdown-item" href="staff.php">직원 관리</a><?php
                     }
                     else if(!isset($_SESSION["userid"])||$_SESSION["permit"]==0){
                       ?><a class="dropdown-item" href="" OnClick="alert('관리자 메뉴입니다.')";>직원 관리</a><?php
                     }
                     ?>
-                  <?php  
+                  <?php
                     if($_SESSION["permit"]==1){
                     ?> <a class="dropdown-item" href="sales.php">매출 관리</a><?php
                     }
@@ -104,7 +104,7 @@
         </h1>
         <hr>
         <?php
-    $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+    $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
     $select = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=8";
     $result = mysqli_query($conn, $select);
     $row = mysqli_fetch_array($result);
@@ -144,7 +144,7 @@
                     </li>
 
                     <?php
-            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select1 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=9";
             $result1 = mysqli_query($conn, $select1);
             $row1 = mysqli_fetch_array($result1);
@@ -172,7 +172,7 @@
                     </li>
 
                     <?php
-            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select2 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=10";
             $result2 = mysqli_query($conn, $select2);
             $row2 = mysqli_fetch_array($result2);
@@ -200,7 +200,7 @@
                         </div>
                     </li>
                     <?php
-            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select3 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=11";
             $result3 = mysqli_query($conn, $select3);
             $row3 = mysqli_fetch_array($result3);
@@ -228,7 +228,7 @@
 
                 <ol class="movielist">
                     <?php
-            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select4 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=12";
             $result4 = mysqli_query($conn, $select4);
             $row4 = mysqli_fetch_array($result4);
@@ -253,7 +253,7 @@
                         </div>
                     </li>
                     <?php
-            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select5 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=13";
             $result5 = mysqli_query($conn, $select5);
             $row5 = mysqli_fetch_array($result5);
@@ -279,7 +279,7 @@
                         </div>
                     </li>
                     <?php
-                        $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+                        $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
                         $select6 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=14";
                         $result6 = mysqli_query($conn, $select6);
                         $row6 = mysqli_fetch_array($result6);
@@ -306,7 +306,7 @@
                         </div>
                     </li>
                     <?php
-            $conn = mysqli_connect("localhost", "root", "root", "movie_theater");
+            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select7 = "SELECT title,actors FROM movie_theater.movies WHERE m_idx=15";
             $result7 = mysqli_query($conn, $select7);
             $row7 = mysqli_fetch_array($result7);
