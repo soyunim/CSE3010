@@ -357,11 +357,11 @@ session_start();
             <div id="js-model" class="model">
                 <div class="button-close">
                     <button id="close" class="close-x" type="button" name="button">X</button>
-                </div>
+                    </div>
                     <div class="seatSelection col-lg-12">
                         <div class="seatsChart col-lg-offset-6">
-                            <div id="test4" class="seats">
-                            </div>
+                            <div id="test4" class="seats"></div>
+                        </div>
 
                         <div class="seatsReceipt" style="overflow:scroll;">
                             <p class="print_seat"><strong>선택 좌석 : <span class="seatsAmount">0</span></strong></p><button id="btnClear" class="btn btn_clear">Clear</button>
@@ -391,15 +391,15 @@ session_start();
                     <button id="close2" class="close-x" type="button" name="button">X</button>
                 </div>
                 <div class="in2">
-                <p class="stack">결제 방법을 선택하여 주세요.</p>
+                <p class="stack okhere">결제 방법을 선택하여 주세요.</p>
                 <div class="select_way">
                     <form>
                         <input type="radio" name="chk_info" value="card">CARD
                         <input type="radio" name="chk_info" value="coupon">COUPON
                       <br>
                       <br>
-                      <p>결제 정보</p>
-                      <ul>
+                      <p class="okhere">결제 정보</p>
+                      <ul class="hyowonggangpae">
                           <li id="branch_name">지점 : </li>
                           <li id="title">제목 : </li>
                           <li id="date">예매일자 :</li>
@@ -419,22 +419,22 @@ session_start();
                             echo "$discount%";
                           ?></li>
                           <li id="realPrice">실 결제 금액 : </li>
-                          <div id="final">
-                            <a href="#" class="submit">결제하기</a>
-                          </div>
+                          
 
                       </ul>
-
-
-
                   </form>
+                  
                 </div>
             </div>
+            <div id="final">
+                <a href="#" class="submit">결제하기</a>
             </div>
+            </div>
+            
         </div>
-
-
+        
     </div>
+    
     <!-- /.container -->
     <div style="clear:both;" class="bnt_foot"></div>
     <!-- Footer -->
