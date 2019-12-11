@@ -123,7 +123,7 @@
                 </div>
 
                 <div class = "box-image">
-                    <a href="./movieinfo/frozen2.php"><img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82014/82014_185.jpg" alt="겨울왕국2"></a>
+                    <a href="./movieinfo/겨울왕국2.php"><img src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000082/82014/82014_185.jpg" alt="겨울왕국2"></a>
                 </div>
 
                 <div class = "box-content">

@@ -393,7 +393,7 @@ session_start();
                 <div class="in2">
                 <p class="stack">결제 방법을 선택하여 주세요.</p>
                 <div class="select_way">
-                    <form class=inform method="post" action="index.php">
+                    <form>
                         <input type="radio" name="chk_info" value="card">CARD
                         <input type="radio" name="chk_info" value="coupon">COUPON
                       <br>
@@ -471,7 +471,7 @@ session_start();
     function movies(name, th, length) {
         var cgroup = [];
         for (let i = 0; i < length; i++) {
-            cgroup[i] = document.getElementById('theater${i}');
+            cgroup[i] = document.getElementById(`theater${i}`);
         }
         for (let i = 0; i < length; i++) {
             if (cgroup[i].classList.contains('li_active')) {
@@ -616,17 +616,7 @@ session_start();
                     $(this).addClass("seatUnavailable");
 
                     idlist.push(sel_seat);
-                    $.ajax({
-                        url: 'reserve/seat/seatchange.php',
-                        type: 'POST',
-                        data: {seat : idlist,},
-                        success: function(data) {
 
-                        },
-                        error: function(jqXHR, textStatus, errorThrown) {
-                            alert("arjax error : " + textStatus + "\n" + errorThrown);
-                        }
-                    });
                 });
                 // 좌석선택 페이지 숨기기
                 var test_model = document.getElementById("test_model_overlay");
@@ -675,11 +665,24 @@ session_start();
 
                 $("#final").click(
                     function(){
+                        var chk_info = $('input[name="chk_info"]:checked').val();
+                        $.ajax({
+                            url: 'reserve/seat/seatchange.php',
+                            type: 'POST',
+                            data: {seat : idlist},
+                            success: function(data) {
+
+                            },
+                            error: function(jqXHR, textStatus, errorThrown) {
+                                alert("arjax error : " + textStatus + "\n" + errorThrown);
+                            }
+                        });
+
+
                         $.ajax({
                             url: 'reserve/reserve.php',
                             type : 'POST',
                             data : {
-                                chk_info : chk_info,
                                 id : user_id,
                                 date : date,
                                 name : name,
@@ -687,18 +690,16 @@ session_start();
                                 time : time,
                                 seat : idlist,
                                 price : realprice,
+                                chk_info:chk_info
                             },
                             success: function(data) {
                                 alert("결제가 완료되었습니다.");
-                                <?php include("./lib/ratingchange.php") ?>
                                 location.href='index.php';
                             },
                             error: function(jqXHR, textStatus, errorThrown) {
                                 alert("arjax error : " + textStatus + "\n" + errorThrown);
                             }
-
                         });
-
                     }
                 );
 

@@ -208,7 +208,7 @@
                     <td data-label="movie_date"><?=$yourArray[$i]["movie_date"]?></td>
                     <td data-label="movie_time"><?=$yourArray[$i]["movie_time"]?></td>
                     <td data-label="seat"><?=$yourArray[$i]["seat"]?></td>
-                    <td data-label ="review"><button id="go_review_page" onclick="location.href= 'staffmod.php?staff_code=<?=$yourArray[$i]["staff_code"]?>' "type="button" title="스테프관리페이지로 이동">리뷰작성</button></td>
+                    <td data-label ="review"><button id="go_review_page" onclick="location.href='movieinfo/<?=$yourArray[$i]["title"]?>.php' "type="button" title="영화정보페이지로이동">리뷰작성</button></td>
                     <td data-label ="cancel"><button id="reserve_cancel" onclick="cancel('<?=$yourArray[$i]["reserve_code"]?>','<?= $yourArray[$i]['id']?>', '<?=$yourArray[$i]["price"]?>')" type="button" title="예매 취소">예매취소</button></td>
                 </tr>
                 <?php
