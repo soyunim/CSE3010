@@ -2,9 +2,23 @@
     font-family:blackhans;
     src: url(../BlackHanSans-Regular.ttf);
 }
+.bnt_foot{
+    height:100px;
+}
+.seatshit{
+    height:50px;
+    font-size:20px;
+}
+.fontupup, .fontupup a{
+    font-size:16px!important;
+}
+.active, .black, .holy, .blue, p#theater0, p#movie0, p#time{
+    cursor:pointer;
+}
 
-.navbar-brand{
+.serv_margin{
     font-family: blackhans;
+    margin-left:20px;
 }
 
 #test_model_overlay {
