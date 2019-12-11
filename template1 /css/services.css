@@ -12,10 +12,18 @@
 .fontupup, .fontupup a{
     font-size:16px!important;
 }
-.active, .black, .holy, .blue, p#theater0, p#movie0, p#time{
+.active, .black, .holy, .blue, p#theater0, p#movie0, p#time, div.seatNumber, .seatNumber.seatSelected{
     cursor:pointer;
 }
-
+p#theater1, p#theater2, p#theater3, p#theater1.li_active, p#theater2.li_active, p#theater3.li_active{
+    cursor:pointer;
+}
+p#movie1,p#movie2,p#movie3,p#movie4,p#movie5,p#movie6,p#movie1.li_active, p#movie2.li_active, p#movie3.li_active, p#movie4.li_active, p#movie5.li_active,p#movie6.li_active{
+    cursor:pointer;
+} 
+p#time1, p#time2, p#time3,p#time4,p#time5, p#time1.li_active, p#time2.li_active, p#time3.li_active,p#time4.li_active,p#time5.li_active{
+    cursor:pointer;
+}
 .serv_margin{
     font-family: blackhans;
     margin-left:20px;
@@ -64,12 +72,12 @@
 
 .in2 p {
     border-bottom : 1px solid black;
-    width : 90%;
+    width : 100%;
 }
 
 p.stack {
     text-align:center;
-    width:87%;
+    width:100%;
 }
 
 /* 추가한것 !!!!!! */
@@ -276,3 +284,24 @@ td {
 .hidden {display: none;}
 
 .seatsAmount {max-width: 2em;}
+.hyowonggangpae{
+    padding: 0!important;
+    padding-inline-start: 0px;
+    list-style-type: none;
+    margin:0;
+}
+
+.hyowonggangpae li{
+    padding:0!important;
+}
+
+#final{
+    height:100px;
+}
+#final a{
+    font-size:20px;
+}
+.okhere{
+    font-size:20px;
+    font-weight: bold;
+}
