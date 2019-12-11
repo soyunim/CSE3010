@@ -14,10 +14,11 @@ while ($R = mysqli_fetch_array($result)) {
 }
 // print_r($seats);
 $k = 0;
+$alphabet = array("A","B","C","D","E");
 for($i =0; $i < 5; $i++){
     echo "<div class='seatRow'>
         <div class='seatRowNumber'>
-            A
+            $alphabet[$i]
         </div>";
     for($j = 1; $j<9;$j++,$k++){
         $a = $seats[$k][0];

@@ -96,6 +96,7 @@
   </nav>
     <?php
         $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
+        mysqli_set_charset($conn, "utf8");
         $select = "SELECT * FROM movie_theater.movies WHERE m_idx=4";
         $result = mysqli_query($conn, $select);
         $row = mysqli_fetch_array($result);
