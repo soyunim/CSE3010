@@ -139,7 +139,7 @@
 
     <h1 class="my-4">MOVIE CHART</h1>
     <div class="row info_movie">
-      <div class="col-lg-4 mb-4">
+      <div class="twentyfive col-lg-4 mb-4">
         <div class="card h-100">
           <div class="card-body" style="background-image:url(img/frozen.jpg); background-size:cover;">
             <div class="whatmovie">
@@ -165,7 +165,7 @@
 
 
 
-      <div class="col-lg-4 mb-4">
+      <div class="twentyfive col-lg-4 mb-4">
         <div class="card h-100">
           <div class="card-body" style="background-image:url(img/blackmoney.jpg); background-size:cover;">
           <div class="whatmovie">
@@ -188,7 +188,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 mb-4">
+      <div class="twentyfive col-lg-4 mb-4">
         <div class="card h-100">
           <div class="card-body" style="background-image:url('https://movie-phinf.pstatic.net/20191029_52/15723135180872xOKy_JPEG/movie_image.jpg'); background-size:cover;">
           <div class="whatmovie">
@@ -211,7 +211,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 mb-4">
+      <div class="twentyfive col-lg-4 mb-4">
         <div class="card h-100">
           <div class="card-body" style="background-image:url('https://movie-phinf.pstatic.net/20191024_215/1571900079078PNazL_JPEG/movie_image.jpg'); background-size:cover;">
           <div class="whatmovie">
