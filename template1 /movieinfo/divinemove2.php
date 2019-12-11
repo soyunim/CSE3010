@@ -189,11 +189,11 @@
           <caption>다른고객들이 작성한 리뷰</caption>
           <thead>
           <tr>
-            <th scope="col">제목</th>
-            <th scope="col">아이디</th>
-            <th scope="col">평점</th>
-            <th scope="col">리뷰작성시간</th>
-            <th scope="col">리뷰내용</th>
+            <th class="re_menu" scope="col">제목</th>
+            <th class="re_menu" scope="col">아이디</th>
+            <th class="re_menu" scope="col">평점</th>
+            <th class="re_menu" scope="col">리뷰작성시간</th>
+            <th class="re_menu" scope="col">리뷰내용</th>
           </tr>
           </thead>
           <tbody>
