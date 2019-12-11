@@ -471,7 +471,7 @@ session_start();
     function movies(name, th, length) {
         var cgroup = [];
         for (let i = 0; i < length; i++) {
-            cgroup[i] = document.getElementById(`theater${i}`);
+            cgroup[i] = document.getElementById('theater${i}');
         }
         for (let i = 0; i < length; i++) {
             if (cgroup[i].classList.contains('li_active')) {
@@ -679,6 +679,7 @@ session_start();
                             url: 'reserve/reserve.php',
                             type : 'POST',
                             data : {
+                                chk_info : chk_info,
                                 id : user_id,
                                 date : date,
                                 name : name,
@@ -689,6 +690,7 @@ session_start();
                             },
                             success: function(data) {
                                 alert("결제가 완료되었습니다.");
+                                <?php include("./lib/ratingchange.php") ?>
                                 location.href='index.php';
                             },
                             error: function(jqXHR, textStatus, errorThrown) {

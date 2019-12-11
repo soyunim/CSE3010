@@ -17,9 +17,12 @@ foreach ($seat as $value) {
 // $sql = "INSERT INTO refund_info values(1,'1','1')";
 $sql = "INSERT INTO reservation_info (branch_name,id,title,movie_date,movie_time,seat,number,screen,price) VALUES ('".$name."' ,'".$id."','".$title."','".$date."','".$time."','".$seat_val."',$seat_num,'1관',$price)";
 $result = mysqli_query($dbconn, $sql);
+$sql = "UPDATE member SET history = history +$price WHERE id = '$id'";
+$result = mysqli_query($dbconn, $sql);
 if($result){
-    echo "$id,$date,$name,$title,$time,$seat,$price,$seat_num,$seat_val";
+    echo 1;
 } else {
     echo 0;
 }
+
 ?>
