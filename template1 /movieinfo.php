@@ -112,6 +112,7 @@
         <h4><strong>현재 상영작</strong>/<a href="set_released.php">개봉 예정작</a></h4>
         <?php
             $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
+            mysqli_set_charset($conn, "utf8");
             $select = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=1";
             $result = mysqli_query($conn, $select);
             $row = mysqli_fetch_array($result);
@@ -128,7 +129,7 @@
 
                 <div class = "box-content">
                     <div class = "m_title">
-                        <span><?php echo $row[0]; ?></span>
+                        <span><?=$row[0]?></span>
                     </div>
 
                     <div class = "m_actors">
@@ -145,7 +146,6 @@
                 </div>
             </li>
             <?php
-            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select1 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=2";
             $result1 = mysqli_query($conn, $select1);
             $row1 = mysqli_fetch_array($result1);
@@ -177,7 +177,6 @@
                 </div>
             </li>
             <?php
-            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select2 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=3";
             $result2 = mysqli_query($conn, $select2);
             $row2 = mysqli_fetch_array($result2);
@@ -209,7 +208,6 @@
                 </div>
             </li>
             <?php
-            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select3 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=4";
             $result3 = mysqli_query($conn, $select3);
             $row3 = mysqli_fetch_array($result3);
@@ -245,7 +243,6 @@
 
         <ol class = "movielist">
             <?php
-            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select4 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=5";
             $result4 = mysqli_query($conn, $select4);
             $row4 = mysqli_fetch_array($result4);
@@ -278,7 +275,6 @@
                 </div>
             </li>
             <?php
-            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select5 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=6";
             $result5 = mysqli_query($conn, $select5);
             $row5 = mysqli_fetch_array($result5);
@@ -311,7 +307,6 @@
                 </div>
             </li>
             <?php
-            $conn = mysqli_connect("localhost", "jegyun", "211724", "movie_theater");
             $select6 = "SELECT title,actors,rating,grade FROM movie_theater.movies WHERE m_idx=7";
             $result6 = mysqli_query($conn, $select6);
             $row6 = mysqli_fetch_array($result6);
